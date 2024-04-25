@@ -16,18 +16,16 @@ class Access_page_middleware
      *
      * @param \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, $user_access = "all"): Response
+    public function handle(Request $request, Closure $next, $user_access): Response
     {
-        if ($user_access == "all") {
-            return $next($request);
-        } else {
-            $access_code_user = Auth::user()->level;
+
+            $access_code_user = Auth::user()['level'];
             foreach (explode('#',$user_access) as $key=>$value){
                 if(Users_code::getKey($access_code_user) == $value){
                     return $next($request);
                 }
             }
-        }
+
         Alert::error('خطا', 'عدم دسترسی');
         return redirect(route('form_login'));
     }

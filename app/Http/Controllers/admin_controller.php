@@ -15,7 +15,7 @@ class admin_controller extends Controller
         $validation = $request->validate([
         'name'=>'required|max:255',
         'last_name'=>'required|max:255',
-        'phone'=>'required|max:255|regex:/^09[0-9]{9}$/',
+        'phone'=>'required|digits:11|regex:/^09[0-9]{9}$/|unique:users,phone',
         'coffee_name'=>'required|max:255',
         'password'=>'required|max:255',
         'address_coffee'=>'required|max:255',

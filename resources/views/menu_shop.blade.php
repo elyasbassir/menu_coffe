@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>منو کافه</title>
+    <link rel="stylesheet" href="{{asset('/css/menu.css')}}">
 @include('link.links_css')
 </head>
 <body>
@@ -27,7 +28,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="page_title text-center mb-4">
-                    <h1 class="name_coffee"> منوی کافه جمهوری </h1>
+                    <h1 class="name_coffee"> منوی
+                    {{$data[0]->name_coffee_shop}}
+                    </h1>
                     <div class="single_line"></div>
                 </div>
             </div>
@@ -248,6 +251,9 @@
 <script>
     $(document).ready(function (){
         $('.loader').delay(1500).fadeOut(500);
+
+        var data = JSON.stringify({{$product_data}});
+
     });
 </script>
 </body>
