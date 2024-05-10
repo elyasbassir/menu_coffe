@@ -252,7 +252,7 @@
     $(document).ready(function (){
         $('.loader').delay(1500).fadeOut(500);
 
-        var data = JSON.stringify({{$product_data}});
+
 
     });
 </script>

@@ -12,7 +12,7 @@
                 <span class="bi bi-border-all"></span>
                 <span class="ml-2">داشبرد</span>
             </a>
-            <a href="{{route('add_owner')}}"
+            <a href="{{route('admin.add_owner')}}"
                class="<?php echo ($name_route == 'add_owner') ? "active" : ""; ?> list-group-item list-group-item-action border-0 align-items-center">
                 <span class="bi bi-box"></span>
                 <span class="ml-2">اضافه کردن فروشنده</span>
