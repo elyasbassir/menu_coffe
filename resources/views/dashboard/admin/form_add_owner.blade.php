@@ -29,7 +29,7 @@
 
     <div class="container" style="position: relative;padding: 50px;">
         <h3 style="text-align: center">اضافه کردن فروشنده جدید</h3>
-        <form action="{{route('new_owner')}}" method="POST">
+        <form action="{{route('admin.new_owner')}}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="exampleInputPassword1">نام:</label>
