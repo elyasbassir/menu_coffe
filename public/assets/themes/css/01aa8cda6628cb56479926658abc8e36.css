@@ -1,0 +1,561 @@
+:dark-mode {
+    --bg-color: black;
+    --text-color: white;
+}
+
+@font-face {
+    font-family: "iran-moghtased";
+    src: url(/assets/themes/fonts/iran-moghtased.ttf);
+}
+
+@font-face {
+    font-family: "iran-Dorandis";
+    src: url(/assets/themes/fonts/IRANDorandis.ttf);
+}
+
+@font-face {
+    font-family: "iran-marker";
+    src: url(/assets/themes/fonts/IRANMarker.ttf);
+}
+
+@keyframes bubble {
+    0% {
+        transform: translateY(100vh) scale(0);
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: 0.8;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        clip-path: inset(100% 100% 0 0);
+    }
+    to {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+*{
+    font-family: "iran-marker";
+}
+body {
+    background-image: url("/assets/themes/images/backgeound.jpg");
+    direction: rtl;
+}
+
+.bubble-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.bubbles {
+    position: absolute;
+    display: flex;
+}
+
+.bubbles span {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: #4fc3dc;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
+    animation: bubble 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+}
+
+.bubbles span:nth-child(even) {
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero img {
+    display: none;
+    background: no-repeat;
+    width: min(800px, 80%);
+    height: min(200px, 100px);
+    object-fit: cover;
+    margin-top: 2%;
+    /* z-index: 1; */
+}
+
+.swiper {
+    width: 90%;
+    height: 50px;
+    margin-top: 10px;
+    user-select: none;
+}
+
+.swiper-slide {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+}
+.page_detail_product{
+    display: none;
+}
+.slider_image_product img,.slider_image_product video{
+    width: 220px;
+    height: 220px;
+}
+.swiper-slide p {
+    padding-top: 10px;
+    font-family: "iran-marker";
+}
+
+.bi {
+    display: block;
+    font-size: 24px;
+    color: snow;
+    margin-right: 5px;
+}
+
+.bi:active {
+    transform: rotate(calc(360deg * 2));
+    transition: 1s ease-in-out;
+}
+
+.search-box {
+    background-color: white;
+    border: 2px double white;
+    border-radius: 5px;
+    height: 30px;
+    opacity: 1;
+    transition-duration: 0.2s;
+}
+
+.search-box:focus-within {
+    box-shadow: 0px 0px #c80036;
+    transform: translate(3px, 1px);
+    transition-duration: 0.2s;
+}
+
+.grid-row .card-img-top {
+    width: 100%;
+    height: 150px;
+}
+
+.card:hover {
+    .card-img-top h6, p {
+        color: snow;
+    }
+}
+
+.search-box::placeholder {
+    font-family: "iran-marker";
+    letter-spacing: 2px;
+    /* opacity: 0.8; */
+    margin-right: 5px;
+    color: #000;
+}
+
+.grid-row {
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+}
+
+.grid-row .card {
+    animation-range: entry 0% cover 30%;
+    background-color: rgba(255, 255, 255, 0.7);
+    height: 500px;
+}
+
+.grid-row .food-price {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5px;
+    border: 7px double #ffffff;
+    border-radius: 0px 30px 0px 30px;
+}
+
+.flex-row .card {
+    display: flex;
+    margin: 10px;
+    flex-direction: row;
+    width: 100%;
+    height: 100px !important;
+    background-color: transparent;
+}
+
+.flex-row .card:nth-child(odd) {
+    animation: linear;
+    animation-timeline: view();
+    animation-range: entry 5% cover 30%;
+}
+
+.flex-row .card:nth-child(even) {
+    animation: linear;
+    animation-timeline: view();
+    animation-range: entry 5% cover 30%;
+}
+
+.flex-row .card .card-title {
+    align-items: stretch;
+    display: flex;
+    color: snow;
+    flex-direction: column;
+}
+
+.flex-row,
+.grid-row .card .card-title,
+.card-text,
+.food-price {
+    font-family: "iran-marker";
+
+}
+
+.flex-row .card .ingredients-container {
+    display: none;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 4px;
+    width: 250px;
+    padding: 4px;
+    font-size: 14px;
+    list-style-type: none;
+    /* flex-direction: row; */
+}
+
+.flex-row .ingredients {
+    display: grid;
+    place-content: center;
+    border: 1px solid hsl(210deg, 8%, 50%);
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.flex-row .isAvailable {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.flex-row .food-price {
+    position: absolute;
+    color: snow;
+    align-self: center;
+    left: 0;
+}
+
+.flex-row .isAvailable,
+.food-price {
+    margin-left: 5px;
+}
+
+.card {
+    display: flex;
+    user-select: none;
+    transition: 0.5s;
+}
+
+.card-title p {
+    font-size: 12px;
+}
+
+.card:hover img {
+    border-radius: 2%;
+
+}
+
+.card:hover {
+    background-color: rgba(58, 56, 56, 0.8);
+    transform: scale(1.08);
+}
+
+@keyframes border-radius-change {
+    0% {
+        border-radius: 20% 50% 30% 80%;
+        transform: scale(1);
+    }
+    25% {
+        border-radius: 50% 20% 70% 30%;
+        transform: scale(1.05);
+    }
+    50% {
+        border-radius: 30% 70% 50% 20%;
+        transform: scale(1.1);
+    }
+    75% {
+        border-radius: 80% 30% 20% 50%;
+        transform: scale(1.05);
+    }
+    100% {
+        border-radius: 20% 50% 30% 80%;
+        transform: scale(1);
+    }
+}
+
+.card img {
+    width: 130px;
+    height: 100px;
+    transition: 0.5s;
+    will-change: border-radius;
+    animation: border-radius-change 3.5s infinite linear;
+    animation-delay: revert;
+}
+
+.card-title,
+.card-text,
+.text-muted {
+    direction: rtl;
+    margin-right: 10px;
+}
+
+.grid-row .card .card-title {
+    display: block;
+    margin-top: 10px;
+}
+
+.grid-row .ingredients-container {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    max-width: 100%;
+    padding: 4px;
+    font-size: 10px;
+    list-style-type: none;
+}
+
+.grid-row .ingredients-container .ingredients:nth-child(odd):last-child {
+    grid-column: 1/4;
+}
+
+.grid-row .ingredients {
+    display: grid;
+    place-content: center;
+    border: 1px solid hsl(210deg, 8%, 50%);
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.grid-row .isAvailable {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.footer {
+    /* position: absolute; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    /* backdrop-filter: blur(5px); */
+    margin-top: 10px;
+    border: 1px solid;
+    direction: rtl;
+}
+
+.footer p {
+    margin-top: 10px;
+}
+
+.page_detail_product {
+    position: fixed;
+    background-color: #202020;
+    right: 10%;
+    bottom: 10%;
+    width: 80%;
+    height: 80%;
+    z-index: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+   .slider_image_product{
+       position: relative;
+       width: 100%;
+   }
+.title_detail_product{
+    position: relative;
+    margin-top: 20px;
+    color: snow;
+}
+.title_description{
+    color: snow;
+    position: relative;
+    margin-right: 30px;
+}
+.page_detail_product p{
+    font-size: 12px;
+    line-height: 30px;
+    max-width: 85%;
+    z-index: 2;
+}
+.full_size{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none;
+}
+@media screen and (min-width: 1141px) {
+    .search-box {
+        width: 40%;
+    }
+
+    /* grid query */
+    .grid-row {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    /*.grid-row .card img {*/
+    /*  object-fit: cover;*/
+    /*  width: 100%;*/
+    /*  height: 259px;*/
+    /*}*/
+    .grid-row .card .card-title {
+        margin-top: 10px;
+    }
+
+    .flex-row .card {
+        width: 47%;
+    }
+
+
+    .flex-row .card-title {
+        display: flex;
+    }
+
+    .flex-row .card .food-price {
+        display: block;
+    }
+
+    /* flex query */
+}
+
+@media screen and (min-width: 721px) and (max-width: 1140px) {
+    .grid-row {
+        /* display: grid; */
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 541px) and (max-width: 720px) {
+    .grid-row {
+        /* display: grid; */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 540px) {
+    /* grid-row */
+    .grid-row {
+        /* display: grid; */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-row .card .card-title {
+        max-width: 250px;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+    .grid-row .food-price {
+        position: absolute;
+        bottom: 0;
+    }
+
+    /* grid-row */
+    .card {
+        display: flex;
+        /* width: 11rem; */
+        height: 300px !important;
+        margin-top: 10px;
+    }
+
+    .card-title {
+        font-size: 15px;
+        font-weight: bold;
+        margin-top: 5px;
+        max-width: 150px;
+    }
+
+    .card-title::before {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        right: 0;
+        height: 12px;
+    }
+
+    .card-text {
+        font-size: 12px;
+        font-weight: normal;
+    }
+
+    .card-title,
+    .card-text {
+        margin-left: 5px !important;
+    }
+
+    /* flex-row */
+    .flex-row .card .card-title {
+        display: flex;
+
+    }
+
+    .flex-row .card .ingredients {
+        display: none;
+    }
+
+    .card img {
+        width: 110px;
+    }
+
+}
+
+@media screen and (max-width: 390px) {
+    .grid-row {
+        /* display: grid; */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+

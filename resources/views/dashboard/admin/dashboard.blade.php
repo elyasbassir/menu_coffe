@@ -5,7 +5,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @include('link.links_css')
+    <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('assets/css/FontAwesome/css/all.css')}}">
+
 </head>
 <body>
 @include('sweetalert::alert')
@@ -97,7 +100,11 @@
 
 
 
-@include('link.links_js')
+<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+<script src="{{asset('assets/js/sweetalert.js')}}"></script>
+<script src="{{ asset('assets/css/FontAwesome/js/all.js') }}"></script>
+
 <script>
     $(document).ready(()=>{
 

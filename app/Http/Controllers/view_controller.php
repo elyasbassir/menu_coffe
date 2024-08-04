@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Enums\Users_code;
 use App\Models\coffee_shops;
+use App\Models\products;
+use App\Models\setting;
+use App\Models\themes;
 use Illuminate\Http\Request;
 use App\helper\helper;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
-
+use App\Models\template;
 
 class view_controller extends Controller
 {
@@ -25,8 +29,16 @@ class view_controller extends Controller
             return redirect()->back();
         }
         $data = coffee_shops::where('coffee_code', $coffee_code)->first()->get();
-//        $product_data =
-        return view('menu_shop', compact('data'));
+        $view_name = template::where('template_id', setting::where('coffee_code', $coffee_code)->value('template_id'))->value('template');
+        $data_table_theme = themes::where('theme_id', setting::where('coffee_code', $coffee_code)->value('theme_id'))->get();
+        $style = $data_table_theme->value('style_name');
+        $script = $data_table_theme->value('script_name');
+        $custom_css = setting::where('coffee_code', $coffee_code)->value('custom_css');
+        $all_products = products::where('coffee_code',$coffee_code)->get();
+        if (empty($view_name)) {
+            $view_name = "coffee_farta";
+        }
+        return view('template.' . $view_name, compact('data', 'style', 'script', 'custom_css','all_products'));
     }
 
     public function register()
@@ -42,10 +54,10 @@ class view_controller extends Controller
             if ($level == Users_code::admin) {
                 return redirect(route('admin.dashboard'));
             } elseif ($level == Users_code::owner) {
-                return redirect(route('owner.products_owner'));
+                return redirect(route('owner.manage_product_owner'));
             } elseif ($level == Users_code::user) {
 
-            }else{
+            } else {
                 return redirect(route('main_page'));
             }
         } else {
@@ -63,4 +75,44 @@ class view_controller extends Controller
     {
         return view('dashboard.admin.form_add_owner');
     }
+
+
+    public function new_products()
+    {
+
+        return view('dashboard.owner.add_product');
+    }
+
+    public function manage_product()
+    {
+        $products = products::where('coffee_code', Auth::user()->coffee_code)->get();
+        return view('dashboard.owner.products', compact('products'));
+    }
+
+    public function setting()
+    {
+        $coffee_code = Auth::user()->coffee_code;
+        $templates = template::get();
+        $themes = themes::get();
+        $defualt_data = setting::where('coffee_code', $coffee_code)->get();
+        $old_custom_css = $defualt_data->value('custom_css');
+        $template_selected = $defualt_data->value('template_id');
+        $theme_selected =$defualt_data->value('theme_id');
+        return view('dashboard.owner.setting', compact('templates', 'themes','old_custom_css', 'template_selected', 'theme_selected'));
+    }
+
+    public function manage_template()
+    {
+        $templates = template::get();
+        return view('dashboard.admin.add_template', compact('templates'));
+    }
+
+    public function manage_theme()
+    {
+        $themes = themes::get();
+        $templates = template::get();
+        return view('dashboard.admin.add_theme',compact('themes','templates'));
+    }
+
+
 }

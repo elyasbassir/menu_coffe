@@ -6,26 +6,32 @@
         $name_route = Route::currentRouteName();
         $level = \Illuminate\Support\Facades\Auth::user()['level'];
         ?>
+        <h3 style="text-align: center">{{ App\Enums\Users_code::getKey($level) }}</h3>
+
         @if(\App\Enums\Users_code::admin == $level)
             <a href="{{route('admin.dashboard')}}"
-               class="<?php echo ($name_route == 'dashboard') ? "active" : ""; ?> list-group-item list-group-item-action border-0 d-flex align-items-center">
+               class="<?php echo ($name_route == 'admin.dashboard') ? "active" : ""; ?> list-group-item list-group-item-action border-0 d-flex align-items-center">
                 <span class="bi bi-border-all"></span>
                 <span class="ml-2">داشبرد</span>
             </a>
             <a href="{{route('admin.add_owner')}}"
-               class="<?php echo ($name_route == 'add_owner') ? "active" : ""; ?> list-group-item list-group-item-action border-0 align-items-center">
+               class="<?php echo ($name_route == 'admin.add_owner') ? "active" : ""; ?> list-group-item list-group-item-action border-0 align-items-center">
                 <span class="bi bi-box"></span>
                 <span class="ml-2">اضافه کردن فروشنده</span>
             </a>
-            <button
-                class="list-group-item list-group-item-action border-0 d-flex justify-content-between align-items-center"
-                data-toggle="collapse" data-target="#sale-collapse">
-                <div>
-                    <span class="bi bi-cart-dash"></span>
-                    <span class="ml-2">وضعیت فروشنده ها</span>
-                </div>
-                <span class="bi bi-chevron-down small"></span>
-            </button>
+
+
+            <a href="{{route('admin.manage_template')}}"
+               class="<?php echo ($name_route == 'admin.manage_template') ? "active" : ""; ?> list-group-item list-group-item-action border-0 align-items-center">
+                <span class="bi bi-box"></span>
+                <span class="ml-2">مدیریت قالب</span>
+            </a>
+            <a href="{{route('admin.manage_theme')}}"
+               class="<?php echo ($name_route == 'admin.manage_theme') ? "active" : ""; ?> list-group-item list-group-item-action border-0 align-items-center">
+                <span class="bi bi-box"></span>
+                <span class="ml-2">مدیریت تم</span>
+            </a>
+
             <div class="collapse" id="sale-collapse" data-parent="#sidebar">
                 <div class="list-group">
                     <a href="#" class="list-group-item list-group-item-action border-0 pl-5">Customers</a>
@@ -50,16 +56,25 @@
                 </div>
             </div>
         @elseif(\App\Enums\Users_code::owner == $level)
-                <a href="{{route('owner.products_owner')}}"
-                   class="<?php echo ($name_route == 'product') ? "active" : ""; ?> list-group-item list-group-item-action border-0 d-flex align-items-center">
+            <a href="{{ route('menu_coffee',\Illuminate\Support\Facades\Auth::user()->coffee_code) }}" class="list-group-item list-group-item-action border-0 d-flex align-items-center">
+                <span class="bi bi-border-all"></span>
+                <span class="ml-2">نمایش منو</span>
+            </a>
+                <a href="{{route('owner.manage_product_owner')}}"
+                   class="<?php echo ($name_route == 'owner.manage_product_owner') ? "active" : ""; ?> list-group-item list-group-item-action border-0 d-flex align-items-center">
                     <span class="bi bi-border-all"></span>
                     <span class="ml-2">محصولات</span>
                 </a>
-                <a href="{{ route('owner.manage_product_owner') }}"
-                   class="<?php echo ($name_route == 'manage_product') ? "active" : ""; ?> list-group-item list-group-item-action border-0 d-flex align-items-center">
+                <a href="{{ route('owner.new_products_owner') }}"
+                   class="<?php echo ($name_route == 'owner.new_products_owner') ? "active" : ""; ?> list-group-item list-group-item-action border-0 d-flex align-items-center">
                     <span class="bi bi-border-all"></span>
-                    <span class="ml-2">مدیریت محصولات</span>
+                    <span class="ml-2">اضافه کردن محصول</span>
                 </a>
+            <a href="{{ route('owner.setting') }}"
+               class="<?php echo ($name_route == 'owner.setting') ? "active" : ""; ?> list-group-item list-group-item-action border-0 d-flex align-items-center">
+                <span class="bi bi-border-all"></span>
+                <span class="ml-2">تنظمیات منو</span>
+            </a>
                 <button
                     class="list-group-item list-group-item-action border-0 d-flex justify-content-between align-items-center"
                     data-toggle="collapse" data-target="#purchase-collapse">

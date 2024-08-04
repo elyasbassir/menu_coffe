@@ -5,11 +5,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @include('link.links_css')
+    <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('assets/css/FontAwesome/css/all.css')}}">
+
 </head>
 <body>
 @include('sweetalert::alert')
-<!-- overlay -->
+
 
 @include('dashboard.sidebar')
 
@@ -28,21 +31,54 @@
     <!-- main content -->
 
     <div class="container" style="position: relative;padding: 20px">
+        <h2 class="text-center">محصولات
+            فروشگاه {{ \App\Models\coffee_shops::where('coffee_code',\Illuminate\Support\Facades\Auth::user()->coffee_code)->first()->get()[0]->name_coffee_shop }}</h2>
 
-
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">شماره</th>
+                <th scope="col">نام</th>
+                <th scope="col">قیمت</th>
+                <th scope="col">نمایش</th>
+                <th scope="col">ویرایش</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                @foreach($products as $key=>$value)
+                    <th scope="row">{{ $key }}</th>
+                    <td>{{ $value->name_product }}</td>
+                    <td>{{ number_format($value->price) }}</td>
+                    <td><a href="#">نمایش</a></td>
+                    <td class="edit">ویرایش</td>
+                @endforeach
+            </tr>
+            </tbody>
+        </table>
     </div>
 
 
 </div>
 
 
-
-
-@include('link.links_js')
+<script src="{{asset('assets/js/ckeditor.js')}}"></script>
 <script>
-    $(document).ready(()=>{
+    ClassicEditor
+        .create(document.querySelector('#description'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+<script src="{{asset('assets/js/sweetalert.js')}}"></script>
+<script src="{{ asset('assets/css/FontAwesome/js/all.js') }}"></script>
 
-        $('#open-sidebar').click(()=>{
+<script>
+    $(document).ready(() => {
+
+        $('#open-sidebar').click(() => {
 
             // add class active on #sidebar
             $('#sidebar').addClass('active');
@@ -53,7 +89,7 @@
         });
 
 
-        $('#sidebar-overlay').click(function(){
+        $('#sidebar-overlay').click(function () {
 
             // add class active on #sidebar
             $('#sidebar').removeClass('active');
@@ -64,15 +100,38 @@
         });
 
     });
-    $(document).ready(function(){
-        $(".exit_button").click(function (){
+    $(document).ready(function () {
+        $(".exit_button").click(function () {
             $(this).parent().fadeOut(200);
         });
 
-        $('.show_more').click(function (){
-            $("#"+$(this).attr('tag')).fadeIn(500);
+        $('.show_more').click(function () {
+            $("#" + $(this).attr('tag')).fadeIn(500);
         });
     });
+
 </script>
+
+@if ($errors->any())
+    @foreach ($errors->all() as $error)
+        <script>
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            Toast.fire({
+                icon: "error",
+                title: "{{$error}}"
+            });
+        </script>
+    @endforeach
+@endif
 </body>
 </html>

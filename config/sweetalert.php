@@ -6,12 +6,12 @@ return [
     |--------------------------------------------------------------------------
     | Theme
     |--------------------------------------------------------------------------
-    | The theme to use for SweetAlert2 popups.
+    | The themes to use for SweetAlert2 popups.
     | Available themes: dark, minimal, borderless, bootstrap-4, material-ui, wordpress-admin, bulma.
     |
     */
 
-    'theme' => env('SWEET_ALERT_THEME', 'default'),
+    'themes' => env('SWEET_ALERT_THEME', 'default'),
 
     /*
     |--------------------------------------------------------------------------

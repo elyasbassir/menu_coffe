@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\Users_code;
 use App\Models\coffee_shops;
+use App\Models\setting;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -36,6 +37,14 @@ class admin_controller extends Controller
         $new_user->phone = $request->phone;
         $new_user->level = Users_code::owner;
         $new_user->save();
+
+        $add_setting = new setting();
+        $add_setting->coffee_code = $code;
+        $add_setting->template_id = env('TEMPLATE_ID_DEFAULT');
+        $add_setting->theme_id = env('THEME_ID_DEFAULT');
+        $add_setting->custom_css = "";
+        $add_setting->save();
+
         Alert::success('موفق', 'کاربر با موفقیت ثبت شد.');
         return redirect()->back();
     }
