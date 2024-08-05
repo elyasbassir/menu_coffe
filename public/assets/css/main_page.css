@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+
+*{
+    direction: rtl;
+    margin: 0;
+    padding: 0;
+    font-family: "Vazirmatn", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+body{
+    direction: ltr;
+}
+p{
+    color: snow;
+}
+.header {
+    position: absolute;
+    width: 80%;
+    margin-top: 5px;
+    margin-left: 10%;
+    /* z-index: 1; */
+}
+.nav {
+
+    background-color: rgba(249, 249, 249, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.navbar {
+    margin-right: 50px;
+    border-radius: 30px;
+    height: 80px;
+}
+.swiper {
+    width: 18rem;
+}
+
+.card {
+    display: flex;
+    height: 20rem;
+    justify-content: center;
+    align-items: right;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.hero {
+    background: url("../../../assets/images/coffee-big.png") no-repeat center center/cover;
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+.title-container {
+    position: absolute;
+}
+.highlight {
+    filter: invert(1);
+}
+.features {
+    padding: 4rem 1rem;
+    background: #000;
+}
+.imgg {
+    width: 100%;
+    height: 100%;
+}
+.cl-light {
+    color: #f9f9f9;
+}
+.footer {
+    font-size: 16px;
+}
+.m-t {
+    margin-top: 50px;
+}
+.ltr {
+    direction: ltr;
+}
+.rtl {
+    direction: rtl;
+}
+
+.bg-light {
+    background-color: rgba(12, 12, 12, 1) !important;
+}
+
+.animate {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.animate.visible {
+    opacity: 1;
+    animation: fadeIn 1s forwards;
+}
+
+.price-list {
+    position: absolute;
+    background: linear-gradient(#402e7a, #4b70f5);
+    width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width: 1400px) {
+}
+@media screen and (max-width: 350px) {
+    .imgg {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .hero {
+        background: url("../../../assets/images/coffee-big.png") center/center 100%;
+    }
+    .title-container {
+        width: 80%;
+        height: auto;
+        background-color: rgba(249, 249, 249, 0.8);
+        border-radius: 10px;
+        filter: blur(5);
+    }
+    .Title {
+        filter: invert(1);
+        font-family: "iran-Dorandis";
+        font-size: 30px;
+    }
+    .subtitle {
+        margin-top: 10%;
+        filter: invert(1);
+        font-family: "iran-Dorandis";
+        font-size: 24px;
+    }
+    .title-container .btn {
+        position: absolute;
+        margin-right: auto;
+    }
+    button.navbar-toggler {
+        left: 10px;
+        position: absolute;
+    }
+    .highlight {
+        filter: none;
+    }
+    .nav {
+        margin: auto;
+        width: 95%;
+        border-radius: 5px;
+    }
+    .navbar-brand {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .imgg {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .highlight {
+        filter: none;
+    }
+}
+
+
+
+.footer {
+    background-color: #151515;
+    padding: 80px 0;
+}
+
+.container {
+    max-width: 1170px;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
+
+.footer-col {
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #FFF;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #E91E63;
+    width: 50px;
+    height: 2px;
+}
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #DDD;
+    display: block;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #FFF;
+    padding-left: 7px;
+}
+
+.footer-col .social-links a {
+    color: #FFF;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 10px 10px 0;
+    line-height: 40px;
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+    color: #151515;
+    background-color: #FFF;
+}
+
+@media(max-width: 767px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 574px) {
+    .footer-col {
+        width: 100%;
+    }
+}

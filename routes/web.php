@@ -48,9 +48,14 @@ Route::group(['middleware' => Access_page_middleware::class . ":owner", 'prefix'
     Route::get('/new_products', [view_controller::class, 'new_products'])->name('new_products_owner');
     Route::get('/setting', [view_controller::class, 'setting'])->name('setting');
     Route::POST('/add_product', [products_owner::class, 'add_product'])->name('add_product');
-
     //    بروزرسانی اطلاعات قالب منو فروشنده
     Route::PUT('/update_setting', [products_owner::class, 'update_setting'])->name('update_setting');
 });
+
+
+
+//روت های مدیریت پرداخت
+//Route::post();
+
 
 
