@@ -34,7 +34,8 @@ Route::group(['middleware' => Access_page_middleware::class . ":admin", 'prefix'
 //add new and remove template and theme
     Route::POST('/add_template', [template::class, 'add_template'])->name('add_template');
     Route::POST('/add_theme', [theme::class, 'add_theme'])->name('add_theme');
-    Route::DELETE('/delete_theme', [template::class, 'delete_theme'])->name('delete_theme');
+    Route::DELETE('/delete_theme', [theme::class, 'delete_theme'])->name('delete_theme');
+    Route::DELETE('/delete_template', [template::class, 'delete_template'])->name('delete_template');
 
 
 

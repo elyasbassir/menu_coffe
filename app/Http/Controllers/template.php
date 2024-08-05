@@ -37,21 +37,35 @@ class template extends Controller
         return redirect()->back();
     }
 
-    public function delete_theme(Request $request)
+
+    public function delete_template(Request $request)
     {
         $validate = $request->validate([
-            'theme_id' => 'required|string|exists:themes,theme_id',
+            'template_id' => 'required|string|exists:template,template_id',
         ]);
-        $recorde_theme = themes::where('theme_id', $request->theme_id)->get();
-        unlink(public_path('assets/themes/css/' . $recorde_theme->value('style_name') ));
-        unlink(public_path('assets/themes/js/' . $recorde_theme->value('script_name') ));
-        setting::where('theme_id', $request->theme_id)->update([
-            'template_id' => env('TEMPLATE_ID_DEFAULT'),
-            'theme_id' => env('THEME_ID_DEFAULT')
-        ]);
-        themes::where('theme_id', $request->theme_id)->delete();
-        Alert::success("تم با موفقیت حذف شد مشتریانی که از این تم استفاده میکردند بازنشانی شدند به تم پیش فرض.");
+        if($request->template_id == env('TEMPLATE_ID_DEFAULT')){
+            Alert::error("شما اجازه پاک کردن قالب اصلی رو ندارید.");
+            return redirect()->back();
+        }
+        $recorde_template = templates::where('template_id', $request->template_id)->get();
+        unlink(resource_path('views/template/' . $recorde_template->value('template') . '.blade.php'));
+
+        $recorde_theme = themes::where('template_id', $request->template_id)->get();
+        foreach ($recorde_theme as $key => $value) {
+            unlink(public_path('assets/themes/css/' . $recorde_theme->value('style_name')));
+            unlink(public_path('assets/themes/js/' . $recorde_theme->value('script_name')));
+            setting::where('template_id', $request->template_id)->update([
+                'template_id' => env('TEMPLATE_ID_DEFAULT'),
+                'theme_id' => env('THEME_ID_DEFAULT')
+            ]);
+            themes::where('template_id', $request->template_id)->delete();
+        }
+
+        templates::where('template_id', $request->template_id)->delete();
+
+        Alert::success("قالب با موفقیت حذف شد مشتریانی که از این قالب استفاده میکردند بازنشانی شدند به قالب پیش فرض.");
         return redirect()->back();
 
     }
+
 }

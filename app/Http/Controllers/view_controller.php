@@ -61,7 +61,7 @@ class view_controller extends Controller
                 return redirect(route('main_page'));
             }
         } else {
-            return view('login_register.login_form');
+            return view('auth.login_form');
         }
     }
 
@@ -104,14 +104,14 @@ class view_controller extends Controller
     public function manage_template()
     {
         $templates = template::get();
-        return view('dashboard.admin.add_template', compact('templates'));
+        return view('dashboard.admin.manage_template', compact('templates'));
     }
 
     public function manage_theme()
     {
         $themes = themes::get();
         $templates = template::get();
-        return view('dashboard.admin.add_theme',compact('themes','templates'));
+        return view('dashboard.admin.manage_theme',compact('themes','templates'));
     }
 
 

@@ -57,7 +57,14 @@
                 <tr>
                     <th scope="row">{{$key+1}}</th>
                     <td>{{$value->template_name}}</td>
-                    <td><a href="#">حدف قالب</a></td>
+                    <td>
+                        <form action="{{ route('admin.delete_template') }}" METHOD="POST">
+                            @method('DELETE')
+                            @csrf
+                            <input name="template_id" type="hidden" value="{{ $value->template_id }}">
+                            <input type="submit" value="حذف قالب">
+                        </form>
+                    </td>
                 </tr>
             @endforeach
             </tbody>

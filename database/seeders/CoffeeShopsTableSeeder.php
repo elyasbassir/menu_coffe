@@ -21,21 +21,30 @@ class CoffeeShopsTableSeeder extends Seeder
         \DB::table('coffee_shops')->insert(array (
             0 => 
             array (
-                'id' => 7,
-                'coffee_code' => 'ea0de4ffb7a9e95bc47c30c21bb8cdaf',
-                'name_coffee_shop' => 'علی کافه',
-                'address_coffee_shop' => 'شهرستان فردوس - فلکه انار - کنار افق کوروش',
-                'updated_at' => '2024-04-25 06:32:22',
-                'created_at' => '2024-04-25 06:32:22',
+                'id' => 9,
+                'coffee_code' => 'c68d7c358513912dccb2d53dc13fa970',
+                'name_coffee_shop' => 'رستوران اعیان',
+                'address_coffee_shop' => 'فلکه زعفران - به سمت چهار راه شهربانی',
+                'updated_at' => '2024-08-02 11:22:38',
+                'created_at' => '2024-08-02 11:22:38',
             ),
             1 => 
             array (
-                'id' => 6,
-                'coffee_code' => '29d8a611b50446e28b3a8b00ebc5bf3d',
-                'name_coffee_shop' => 'کافه فرتا',
-                'address_coffee_shop' => 'خیابان تست - تست -تست -تست -تست -تست',
-                'updated_at' => '2024-04-20 10:17:50',
-                'created_at' => '2024-04-20 10:17:50',
+                'id' => 8,
+                'coffee_code' => '8010d0c9b75f2aaa745ba9db586cff4b',
+                'name_coffee_shop' => 'علی کافه',
+                'address_coffee_shop' => 'خیابان فردوس - بعثت -فلکه انار',
+                'updated_at' => '2024-07-30 14:18:03',
+                'created_at' => '2024-07-30 14:18:03',
+            ),
+            2 => 
+            array (
+                'id' => 10,
+                'coffee_code' => 'd86c4b86cd4d0ac169a854ef4d81c07c',
+                'name_coffee_shop' => 'کافه جمهوری',
+                'address_coffee_shop' => 'خیابان بعثت',
+                'updated_at' => '2024-08-02 11:30:29',
+                'created_at' => '2024-08-02 11:30:29',
             ),
         ));
         

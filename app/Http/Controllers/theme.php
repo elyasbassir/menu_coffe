@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\setting;
 use App\Models\themes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -45,5 +46,25 @@ class theme extends Controller
         Alert::success("تم جدید با موفقیت ایجاد شد");
         return redirect()->back();
     }
+    public function delete_theme(Request $request)
+    {
+        $validate = $request->validate([
+            'theme_id' => 'required|string|exists:themes,theme_id',
+        ]);
+        if($request->theme_id == env('THEME_ID_DEFAULT')){
+            Alert::error("شما اجازه پاک کردن تم اصلی رو ندارید.");
+            return redirect()->back();
+        }
+        $recorde_theme = themes::where('theme_id', $request->theme_id)->get();
+        unlink(public_path('assets/themes/css/' . $recorde_theme->value('style_name') ));
+        unlink(public_path('assets/themes/js/' . $recorde_theme->value('script_name') ));
+        setting::where('theme_id', $request->theme_id)->update([
+            'template_id' => env('TEMPLATE_ID_DEFAULT'),
+            'theme_id' => env('THEME_ID_DEFAULT')
+        ]);
+        themes::where('theme_id', $request->theme_id)->delete();
+        Alert::success("تم با موفقیت حذف شد مشتریانی که از این تم استفاده میکردند بازنشانی شدند به تم پیش فرض.");
+        return redirect()->back();
 
+    }
 }
