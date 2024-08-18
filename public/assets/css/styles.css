@@ -280,3 +280,135 @@ a:hover {
 
 }
 
+.subscription-cart {
+    position: relative;
+    top: -50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.custom-content {
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+    margin: 100px;
+}
+
+.custom-box {
+    display: flex;
+    flex-direction: column;
+    height: 586px;
+    width: 300px;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 20%);
+}
+
+.custom-title {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1.2em;
+    font-weight: lighter;
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+
+.custom-view {
+    display: block;
+    width: 100%;
+    padding: 30px 0 20px;
+}
+
+.custom-icon {
+    display: flex;
+    justify-content: center;
+}
+
+.custom-icon img {
+    width: 100px;
+}
+
+.custom-cost {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.custom-amount {
+    font-size: 2.8em;
+    font-weight: bolder;
+}
+
+.custom-detail {
+    margin: auto 0 auto 5px;
+    width: 70px;
+    font-size: 0.7em;
+    font-weight: bold;
+    line-height: 15px;
+    color: #7D7C7C;
+}
+
+.custom-description {
+
+    font-size: 0.8em;
+    color: #7D7C7C;
+}
+
+.custom-description ul {
+    list-style: none;
+}
+
+.custom-description li {
+    padding: 10px;
+}
+
+.custom-description li::before {
+    content: "";
+    background-image: url("https://i.postimg.cc/ht7g996V/check.png");
+    background-position: center;
+    background-size: cover;
+    opacity: 0.5;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+}
+
+.custom-button {
+    margin: 0 auto 30px;
+}
+
+.custom-button button {
+    height: 40px;
+    width: 250px;
+    font-size: 0.7em;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: #7D7C7C;
+    border-radius: 50px;
+    background: transparent;
+}
+
+.custom-button button:hover {
+    transition: 0.5s;
+    border: none;
+}
+
+@media screen and (max-width: 970px) {
+    .custom-content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 50px auto;
+    }
+    .custom-standard, .custom-business {
+        margin-top: 25px;
+    }
+}
+

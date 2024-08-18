@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\template;
 use Artesaos\SEOTools\Facades\SEOTools;
+use Hekmatinasser\Verta\Verta;
 
 class view_controller extends Controller
 {
@@ -39,8 +40,13 @@ class view_controller extends Controller
         $script = $data_table_theme->value('script_name');
         $custom_css = setting::where('coffee_code', $coffee_code)->value('custom_css');
         $all_products = products::where('coffee_code',$coffee_code)->get();
+        $time_expire = verta($data->value('expire_subscription'))->toCarbon()->format('j-n-Y');
         if (empty($view_name)) {
             $view_name = "coffee_farta";
+        }
+
+        if(verta()->diffDays($time_expire,false) < 0){
+            abort(402,"نیاز به تمدید اشتراک");
         }
         return view('template.' . $view_name, compact('data', 'style', 'script', 'custom_css','all_products'));
     }
@@ -125,5 +131,11 @@ class view_controller extends Controller
         return view('dashboard.admin.manage_theme',compact('themes','templates'));
     }
 
+    public function subscription()
+    {
+        helper::seo("خرید اشتراک");
+
+        return view('dashboard.owner.subscription');
+    }
 
 }

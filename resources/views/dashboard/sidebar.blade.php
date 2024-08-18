@@ -5,8 +5,17 @@
         <?php
         $name_route = Route::currentRouteName();
         $level = \Illuminate\Support\Facades\Auth::user()['level'];
+        $time_expire = \App\Models\coffee_shops::where('coffee_code',auth()->user()->coffee_code)->value('expire_subscription');
         ?>
         <h3 style="text-align: center">{{ App\Enums\Users_code::getKey($level) }}</h3>
+        <p class="text-center">اشتراک :
+            @if(verta()->diffDays($time_expire,false) < 0)
+                0
+            @else
+                {{verta()->diffDays($time_expire,false)}}
+            @endif
+            روز
+        </p>
 
         @if(\App\Enums\Users_code::admin == $level)
             <a href="{{route('admin.dashboard')}}"
@@ -74,6 +83,11 @@
                class="<?php echo ($name_route == 'owner.setting') ? "active" : ""; ?> list-group-item list-group-item-action border-0 d-flex align-items-center">
                 <span class="bi bi-border-all"></span>
                 <span class="ml-2">تنظمیات منو</span>
+            </a>
+            <a href="{{ route('owner.subscription') }}"
+               class="<?php echo ($name_route == 'owner.subscription') ? "active" : ""; ?> list-group-item list-group-item-action border-0 d-flex align-items-center">
+                <span class="bi bi-border-all"></span>
+                <span class="ml-2">تمدید اشتراک</span>
             </a>
                 <button
                     class="list-group-item list-group-item-action border-0 d-flex justify-content-between align-items-center"

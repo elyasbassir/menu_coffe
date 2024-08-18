@@ -8,10 +8,12 @@
         "php": "^8.2",
         "artesaos/seotools": "^1.3",
         "bensampo/laravel-enum": "^6.11",
+        "hekmatinasser/verta": "^8.4",
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "orangehill/iseed": "^3.0",
+        "pishran/zarinpal": "^4.3",
         "realrashid/sweet-alert": "^7.1"
     },
     "require-dev": {

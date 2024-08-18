@@ -33,7 +33,9 @@
 
     <div class="container" style="position: relative;padding: 20px">
         <h2 class="text-center">محصولات
-            فروشگاه {{ \App\Models\coffee_shops::where('coffee_code',\Illuminate\Support\Facades\Auth::user()->coffee_code)->first()->get()[0]->name_coffee_shop }}</h2>
+            فروشگاه
+        {{ \App\Models\coffee_shops::where('coffee_code',\Illuminate\Support\Facades\Auth::user()->coffee_code)->value('name_coffee_shop') }}
+        </h2>
 
         <table class="table table-striped">
             <thead>

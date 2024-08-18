@@ -9,6 +9,7 @@ use App\Http\Controllers\products_owner;
 use App\Models\products_model;
 use App\Http\Controllers\template;
 use App\Http\Controllers\theme;
+use App\Http\Controllers\payment;
 
 //middleware(Access_page_middleware::class.":admin#owner#user")
 Route::get('/', [view_controller::class, 'main_page']);
@@ -47,9 +48,14 @@ Route::group(['middleware' => Access_page_middleware::class . ":owner", 'prefix'
     Route::get('/manage_product', [view_controller::class, 'manage_product'])->name('manage_product_owner');
     Route::get('/new_products', [view_controller::class, 'new_products'])->name('new_products_owner');
     Route::get('/setting', [view_controller::class, 'setting'])->name('setting');
+    Route::get('/subscription', [view_controller::class, 'subscription'])->name('subscription');
     Route::POST('/add_product', [products_owner::class, 'add_product'])->name('add_product');
     //    بروزرسانی اطلاعات قالب منو فروشنده
     Route::PUT('/update_setting', [products_owner::class, 'update_setting'])->name('update_setting');
+
+
+    Route::GET('/payment',[payment::class,'redirect_to_bank'])->name('redirect_to_bank');
+    Route::GET('/call_back/{payment_id}',[payment::class,'call_back'])->name('call_back');
 });
 
 
