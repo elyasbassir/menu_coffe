@@ -5,7 +5,7 @@
         <?php
         $name_route = Route::currentRouteName();
         $level = \Illuminate\Support\Facades\Auth::user()['level'];
-        $time_expire = \App\Models\coffee_shops::where('coffee_code',auth()->user()->coffee_code)->value('expire_subscription');
+        $time_expire = verta(\App\Models\coffee_shops::where('coffee_code',auth()->user()->coffee_code)->value('expire_subscription'))->toCarbon()->format('j-n-Y');
         ?>
         <h3 style="text-align: center">{{ App\Enums\Users_code::getKey($level) }}</h3>
         <p class="text-center">اشتراک :

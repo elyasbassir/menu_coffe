@@ -32,7 +32,7 @@ class view_controller extends Controller
         if (!helper::exist_coffee($coffee_code)) {
             return redirect()->back();
         }
-        $data = coffee_shops::where('coffee_code', $coffee_code)->first()->get();
+        $data = coffee_shops::where('coffee_code', $coffee_code)->get();
         helper::seo("منوی ".$data->value('name_coffee_shop'));
         $view_name = template::where('template_id', setting::where('coffee_code', $coffee_code)->value('template_id'))->value('template');
         $data_table_theme = themes::where('theme_id', setting::where('coffee_code', $coffee_code)->value('theme_id'))->get();
