@@ -35,7 +35,7 @@
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">شماره</th>
+                <th scope="col">مدیریت</th>
                 <th scope="col">نام کافه</th>
                 <th scope="col">شماره</th>
                 <th scope="col">نمایش منو</th>
@@ -48,7 +48,7 @@
                 ?>
             @foreach($data_coffee as $key=>$value)
             <tr>
-                <th scope="row">{{$i}}</th>
+                <th scope="row">{!!  $value->user->name . "&nbsp;". $value->user->last_name !!}</th>
                 <td>{{$value->name_coffee_shop}}</td>
                 <td>{{$value->phone}}</td>
                 <td><a href="{{route('menu_coffee',$value->coffee_code)}}">کلیک کنید</a></td>
