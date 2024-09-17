@@ -52,10 +52,8 @@
                 data-toggle="collapse" data-target="#purchase-collapse">
                 <a href="{{route('sign_out')}}">
                     <div>
-                        <span class="bi bi-cart-plus"></span>
                         <span class="ml-2" style="color: red;">خروج</span>
                     </div>
-                    <span class="bi bi-chevron-down small"></span>
                 </a>
             </button>
             <div class="collapse" id="purchase-collapse" data-parent="#sidebar">
@@ -94,10 +92,8 @@
                     data-toggle="collapse" data-target="#purchase-collapse">
                     <a href="{{route('sign_out')}}">
                         <div>
-                            <span class="bi bi-cart-plus"></span>
                             <span class="ml-2" style="color: red;">خروج</span>
                         </div>
-                        <span class="bi bi-chevron-down small"></span>
                     </a>
                 </button>
                 <div class="collapse" id="purchase-collapse" data-parent="#sidebar">

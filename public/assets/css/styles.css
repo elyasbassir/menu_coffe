@@ -412,3 +412,118 @@ a:hover {
     }
 }
 
+/* استایل کلی سایدبار */
+.sidebar {
+    background-color: #f8f9fa;
+    padding-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    direction: rtl; /* راست‌چین کردن کلی سایدبار */
+    text-align: right; /* تنظیم جهت متن‌ها */
+}
+
+.sidebar h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.sidebar h3 {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 10px;
+    text-align: center; /* مرکز کردن عنوان‌ها */
+}
+
+/* استایل لیست آیتم‌های سایدبار */
+.sidebar .list-group-item {
+    background-color: transparent;
+    border: none;
+    padding: 10px 20px;
+    color: #333;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    text-align: right; /* راست‌چین کردن متن آیتم‌ها */
+}
+
+.sidebar .list-group-item:hover {
+    background-color: #007bff;
+    color: white;
+    border-radius: 10px;
+    transform: translateX(-5px); /* تغییر جهت حرکت به سمت چپ در راست‌چین */
+}
+
+.sidebar .list-group-item.active {
+    background-color: #0056b3;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* استایل آیکون‌ها در لیست آیتم‌ها */
+.sidebar .list-group-item span.bi {
+    font-size: 1.2rem;
+    margin-left: 10px; /* تنظیم فاصله آیکون‌ها در راست‌چین */
+}
+
+.sidebar .list-group-item .ml-2 {
+    margin-left: auto; /* تغییر فاصله خودکار در راست‌چین */
+}
+
+/* متن‌های اضافی */
+.sidebar p {
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    text-align: center; /* مرکز کردن متن‌های اضافی */
+}
+
+/* استایل کلیدهای collapse */
+.sidebar .collapse {
+    margin-top: 10px;
+}
+
+.sidebar .collapse .list-group-item {
+    padding-right: 40px; /* تنظیم پدینگ برای راست‌چین */
+}
+
+.sidebar button.list-group-item {
+    background-color: transparent;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    text-align: right; /* راست‌چین کردن دکمه‌ها */
+}
+
+.sidebar button.list-group-item:hover {
+    background-color: #007bff;
+    color: white;
+    border-radius: 10px;
+    transform: translateX(-5px); /* تغییر جهت حرکت به سمت چپ در راست‌چین */
+}
+
+/* استایل لینک خروج */
+.sidebar a[href="{{route('sign_out')}}"] {
+    color: red;
+    text-align: right; /* راست‌چین کردن متن خروج */
+}
+
+.sidebar a[href="{{route('sign_out')}}:hover"] {
+    color: #ff4d4d;
+}
+
+/* جلوگیری از تداخل با سایر اجزا */
+.sidebar .list-group-item {
+    display: flex;
+    justify-content: flex-end; /* جهت نمایش متن و آیکون‌ها از راست به چپ */
+}
+
+.sidebar .list-group-item span {
+    order: 2; /* اولویت نمایش آیکون بعد از متن */
+}
+
+.sidebar .list-group-item .ml-2 {
+    order: 1; /* اولویت نمایش متن */
+}
