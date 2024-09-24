@@ -72,7 +72,6 @@
     <div class="flex-row category">
         @foreach($all_products as $key=>$value)
         <div class="card food" category="test">
-            <img next_image="{{ asset('assets/images/products/'.explode(',',$value->image_names)[1]) }}" src="{{ asset('assets/images/products/'.explode(',',$value->image_names)[0]) }}" alt="" class="card-img-top" />
             <div class="card-title">
                 <h5 class="name_product">{{ $value->name_product }}</h5>
                 <p>{{ $value->description_product }}</p>
