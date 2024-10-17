@@ -10,6 +10,8 @@ use App\Models\products_model;
 use App\Http\Controllers\template;
 use App\Http\Controllers\theme;
 use App\Http\Controllers\payment;
+use App\Http\Controllers\category_controller;
+
 
 //middleware(Access_page_middleware::class.":admin#owner#user")
 Route::get('/', [view_controller::class, 'main_page']);
@@ -56,6 +58,11 @@ Route::group(['middleware' => Access_page_middleware::class . ":owner", 'prefix'
 
     Route::GET('/payment',[payment::class,'redirect_to_bank'])->name('redirect_to_bank');
     Route::GET('/call_back/{payment_id}',[payment::class,'call_back'])->name('call_back');
+
+    ////////////مدریت دسته بندی محصولات
+    Route::get('category_product',[category_controller::class,'category_product'])->name('category_product');
+    Route::post('add_category',[category_controller::class,'add_category'])->name('add_category');
+
 });
 
 

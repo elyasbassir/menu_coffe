@@ -65,6 +65,19 @@
             placeholder="جستجو..."
             onkeyup="search()"
     />
+
+</div>
+
+<div class="swiper category_product">
+    <div class="swiper-wrapper">
+        @for($i=0;$i<50;$i++)
+        <div class="swiper-slide item_category">
+            <img src="http://127.0.0.1:8000/assets/images/products/1f75a3c9ab4319ab86ddc57495260f8d.jpg" alt="">
+            <p >نوشیدنی سرد</p>
+        </div>
+        @endfor
+    </div>
+    <div class="swiper-pagination"></div>
 </div>
 
 
@@ -93,6 +106,42 @@
     var swiper = new Swiper(".CategorySwiper", {
         slidesPerView: 5,
         spaceBetween: 20,
+    });
+
+    var category_product = new Swiper(".category_product", {
+        spaceBetween: 0,
+        freeMode: true,
+        speed: 5000,
+        autoplay: {
+            delay: 1,
+            pauseOnMouseEnter: true,
+            disableOnInteraction: false,
+            waitForTransition: true,
+            stopOnLastSlide: false,
+
+        },
+        breakpoints: {
+
+            320: {
+                slidesPerView: 3,
+                spaceBetween: 0
+            },
+
+            480: {
+                slidesPerView: 4,
+                spaceBetween: 0
+            },
+
+            640: {
+                slidesPerView: 5,
+                spaceBetween: 0
+            },
+
+            900: {
+                slidesPerView: 6,
+                spaceBetween: 0
+            }
+        }
     });
 
     var mySwiper = new Swiper('.slider_image_product', {
@@ -128,3 +177,9 @@
 </script>
 <script src="{{asset('assets/themes/js/'.$script)}}"></script>
 </html>
+
+{{--این استایل ها باید اضافه بشه به قالب--}}
+<style>
+
+
+</style>

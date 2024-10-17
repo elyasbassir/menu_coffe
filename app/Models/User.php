@@ -51,4 +51,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(payment::class,'user_id','user_id');
     }
+    public function category(){
+        return $this->BelongsTo(category::class,'user_id','user_id');
+    }
+    public function coffee_shops()
+    {
+        return $this->hasOne(coffee_shops::class,'coffee_code','coffee_code');
+    }
 }

@@ -35,11 +35,8 @@
             <div class="custom-content">
                 <a href="{{ route('owner.redirect_to_bank') }}?plan=plan_medium" class="text-decoration-none">
                 <div class="custom-basic custom-box">
-                    <h2 class="custom-title">پلن معمولی</h2>
+                    <h2 class="custom-title">1 ماهه</h2>
                     <div class="custom-view">
-                        <div class="custom-icon">
-                            <img src="https://i.postimg.cc/2jcfMcf4/hot-air-balloon.png" alt="hot-air-balloon">
-                        </div>
                         <div class="custom-cost">
                             <p class="custom-amount">95</p>
                             <p class="custom-detail">
@@ -65,11 +62,8 @@
                 </a>
                 <a href="{{ route('owner.redirect_to_bank') }}?plan=plan_gold" class="text-decoration-none">
                 <div class="custom-standard custom-box">
-                    <h2 class="custom-title">پلن طلایی</h2>
+                    <h2 class="custom-title">12 ماهه</h2>
                     <div class="custom-view">
-                        <div class="custom-icon">
-                            <img src="https://i.postimg.cc/DzrTN72Z/airplane.png" alt="airplane">
-                        </div>
                         <div class="custom-cost">
                             <p class="custom-amount">1010</p>
                             <p class="custom-detail">                       تومان
@@ -93,11 +87,8 @@
                 </a>
                     <a href="{{ route('owner.redirect_to_bank') }}?plan=plan_silver" class="text-decoration-none">
                 <div class="custom-business custom-box">
-                    <h2 class="custom-title">پلن نقره ای</h2>
+                    <h2 class="custom-title">3 ماهه</h2>
                     <div class="custom-view">
-                        <div class="custom-icon">
-                            <img src="https://i.postimg.cc/wvFd6FRY/startup.png" alt="startup">
-                        </div>
                         <div class="custom-cost">
                             <p class="custom-amount">260</p>
                             <p class="custom-detail">                       تومان

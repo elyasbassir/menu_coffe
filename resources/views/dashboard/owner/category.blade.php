@@ -26,40 +26,46 @@
             <span class="bi bi-list text-primary h3"></span>
             <i class="fa fa-bars"></i>
         </button>
-
     </nav>
-
     <!-- main content -->
-
     <div class="container" style="position: relative;padding: 20px">
-        <h2 class="text-center">محصولات
-            فروشگاه
-        {{ \App\Models\coffee_shops::where('coffee_code',\Illuminate\Support\Facades\Auth::user()->coffee_code)->value('name_coffee_shop') }}
-        </h2>
+        <h2>فرم اضافه کردن محصول</h2>
+        <form action="{{route('owner.add_category')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="row">
+                <div class="col">
+                    <input name="name_category" type="text" class="form-control" placeholder="First name">
+                </div>
+                <div class="col">
+                    <input type="file" name="image_category">
+                </div>
+            </div>
+            <input class="btn btn-primary col-3" type="submit" value="اضافه کردن دسته بندی">
+        </form>
 
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">شماره</th>
-                <th scope="col">نام</th>
-                <th scope="col">قیمت</th>
-                <th scope="col">نمایش</th>
-                <th scope="col">ویرایش</th>
-            </tr>
-            </thead>
-            <tbody>
-                @foreach($products as $key=>$value)
-            <tr>
-                    <th scope="row">{{ $key }}</th>
-                    <td>{{ $value->name_product }}</td>
-                    <td>{{ number_format($value->price) }}</td>
-                    <td><a href="#">نمایش</a></td>
-                    <td class="edit">ویرایش</td>
-            </tr>
-                @endforeach
-            </tbody>
-        </table>
     </div>
+
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">نام</th>
+            <th scope="col">حذف</th>
+            <th scope="col">ویرایش</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($category_user as $key=>$value)
+            <tr>
+                <th scope="row">{{$key}}</th>
+                <td>{{$value->category_name}}</td>
+                <td><a href="{{$value->category_id}}">حذف</a></td>
+                <td><a href="{{$value->category_id}}">ویرایش</a></td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
 
 
 </div>
@@ -67,11 +73,11 @@
 
 <script src="{{asset('assets/js/ckeditor.js')}}"></script>
 <script>
-    ClassicEditor
-        .create(document.querySelector('#description'))
-        .catch(error => {
-            console.error(error);
-        });
+    // ClassicEditor
+    //     .create(document.querySelector('#description'))
+    //     .catch(error => {
+    //         console.error(error);
+    //     });
 </script>
 <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>

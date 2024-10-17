@@ -126,7 +126,6 @@ body {
     justify-content: center;
     text-align: center;
     font-size: 18px;
-    backdrop-filter: blur(5px);
     border-radius: 10px;
 }
 .page_detail_product{
@@ -557,5 +556,24 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+.category_product{
+    position: relative;
+    height: 110px;
+    color: snow;
+}
 
+.category_product p{
+font-size: 10px;
+font-weight: bold;
+}
+
+.item_category{
+    position: relative;
+    display: block;
+}
+.item_category img{
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+}
 

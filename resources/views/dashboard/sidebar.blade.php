@@ -67,6 +67,11 @@
                 <span class="bi bi-border-all"></span>
                 <span class="ml-2">نمایش منو</span>
             </a>
+            <a href="{{route('owner.category_product')}}"
+               class="<?php echo ($name_route == 'owner.category_product') ? "active" : ""; ?> list-group-item list-group-item-action border-0 d-flex align-items-center">
+                <span class="bi bi-border-all"></span>
+                <span class="ml-2">مدیریت دسته بندی</span>
+            </a>
                 <a href="{{route('owner.manage_product_owner')}}"
                    class="<?php echo ($name_route == 'owner.manage_product_owner') ? "active" : ""; ?> list-group-item list-group-item-action border-0 d-flex align-items-center">
                     <span class="bi bi-border-all"></span>
