@@ -43,8 +43,9 @@
                 <th scope="col">شماره</th>
                 <th scope="col">نام</th>
                 <th scope="col">قیمت</th>
-                <th scope="col">نمایش</th>
+                <th scope="col">دسته بندی</th>
                 <th scope="col">ویرایش</th>
+                <th scope="col">حذف</th>
             </tr>
             </thead>
             <tbody>
@@ -53,8 +54,16 @@
                     <th scope="row">{{ $key }}</th>
                     <td>{{ $value->name_product }}</td>
                     <td>{{ number_format($value->price) }}</td>
-                    <td><a href="#">نمایش</a></td>
-                    <td class="edit">ویرایش</td>
+                    <td>{{ $value->category_name }}</td>
+                    <td class="edit"><a href="{{ route('owner.edit_product_owner',$value->product_id) }}">ویرایش</a></td>
+                    <td class="edit">
+                        <form action="{{ route('owner.delete_product_owner') }}" method="post">
+                            @method('DELETE')
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{$value->product_id}}">
+                            <input type="submit" value="حذف">
+                        </form>
+                    </td>
             </tr>
                 @endforeach
             </tbody>

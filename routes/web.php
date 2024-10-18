@@ -48,10 +48,13 @@ Route::group(['middleware' => Access_page_middleware::class . ":admin", 'prefix'
 ///////////////////////// manage product
 Route::group(['middleware' => Access_page_middleware::class . ":owner", 'prefix' => 'owner', 'as' => 'owner.'], function () {
     Route::get('/manage_product', [view_controller::class, 'manage_product'])->name('manage_product_owner');
+    Route::DELETE('/delete_product_owner',[products_owner::class,'delete_product_owner'])->name('delete_product_owner');
     Route::get('/new_products', [view_controller::class, 'new_products'])->name('new_products_owner');
+    Route::get('/edit_product/{product_id}', [view_controller::class, 'edit_product_owner'])->name('edit_product_owner');
     Route::get('/setting', [view_controller::class, 'setting'])->name('setting');
     Route::get('/subscription', [view_controller::class, 'subscription'])->name('subscription');
     Route::POST('/add_product', [products_owner::class, 'add_product'])->name('add_product');
+    Route::POST('/edit_product', [products_owner::class, 'edit_product'])->name('edit_product');
     //    بروزرسانی اطلاعات قالب منو فروشنده
     Route::PUT('/update_setting', [products_owner::class, 'update_setting'])->name('update_setting');
 

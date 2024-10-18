@@ -70,12 +70,12 @@
 
 <div class="swiper category_product">
     <div class="swiper-wrapper">
-        @for($i=0;$i<50;$i++)
+        @foreach($category as $key=>$value)
         <div class="swiper-slide item_category">
-            <img src="http://127.0.0.1:8000/assets/images/products/1f75a3c9ab4319ab86ddc57495260f8d.jpg" alt="">
-            <p >نوشیدنی سرد</p>
+            <img src="{{asset("/assets/images/image_category/").'/'.$value->image_category }}" alt="">
+            <p >{{ $value->category_name }}</p>
         </div>
-        @endfor
+        @endforeach
     </div>
     <div class="swiper-pagination"></div>
 </div>
@@ -85,6 +85,7 @@
     <div class="flex-row category">
         @foreach($all_products as $key=>$value)
         <div class="card food" category="test">
+            <img src="{{ asset('/assets/images/products/').'/'.explode(',',$value->image_names)[0] }}" alt="">
             <div class="card-title">
                 <h5 class="name_product">{{ $value->name_product }}</h5>
                 <p>{{ $value->description_product }}</p>

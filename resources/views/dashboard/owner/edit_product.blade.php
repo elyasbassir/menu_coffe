@@ -32,24 +32,25 @@
     <!-- main content -->
 
     <div class="container" style="position: relative;padding: 20px">
-        <h2>فرم اضافه کردن محصول</h2>
-        <form action="{{route('owner.add_product')}}" method="POST" enctype="multipart/form-data">
+        <h2>فرم ویرایش کردن محصول</h2>
+        <form action="{{route('owner.edit_product')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label>نام محصول</label>
                 <input name="product_name" type="text" class="form-control col" id="formGroupExampleInput"
-                       placeholder="قهوه با کافئین ...">
+                       placeholder="قهوه با کافئین ..." value="{{ $product->value('name_product') }}">
                 <label>قیمت محصول</label>
                 <input name="product_price" type="number" class="form-control col" id="formGroupExampleInput"
-                       placeholder="30000">
+                       placeholder="30000" value="{{ $product->value('price') }}">
             </div>
             <div class="form-group">
                 <label>توضیحات محصول</label>
-                <textarea id="description" name="product_description" cols="30" rows="10"></textarea>
+      <input name="product_description" type="text" class="form-control col" id="formGroupExampleInput"
+                        value="{{ $product->value('description_product') }}">
             </div>
             <div class="container">
                 <div class="row">
-                    <p class="col-4">عکس اول <span style="color: red">*</span></p>
+                    <p class="col-4">عکس اول </p>
                     <p class="col-4">عکس دوم</p>
                     <p class="col-4">ویدیو</p>
                     <input name="main_image" accept=".png, .jpg, .jpeg" class="form-control col" type="file">
@@ -72,10 +73,10 @@
                 </label>
                 <select id="category_id" name="category_id" class="form-select col">
                     @foreach($category_user as $key=>$value)
-                        <option value="{{$value->category_id}}">{{$value->category_name}}</option>
+                        <option value="{{$value->category_id}}" @if($value->category_id == $product->value('category_id')) selected @endif >{{$value->category_name}}</option>
                     @endforeach
                 </select>
-
+                <input type="hidden" name="product_id" value="{{ $product->value('product_id') }}">
                 <input type="submit" value="ثبت محصول" class="btn btn-primary mb-2">
             </div>
         </form>

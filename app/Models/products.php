@@ -17,7 +17,14 @@ class products extends Model
         'video_name',
         'description_product',
         'availability',
+        'category_id',
+        'product_id'
     ];
     public $timestamps = true;
+public function user()
+{
+    return $this->hasOne(User::class,'coffee_code','coffee_code');
+}
+
 
 }
