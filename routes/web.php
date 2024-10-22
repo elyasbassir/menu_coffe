@@ -64,7 +64,10 @@ Route::group(['middleware' => Access_page_middleware::class . ":owner", 'prefix'
 
     ////////////مدریت دسته بندی محصولات
     Route::get('category_product',[category_controller::class,'category_product'])->name('category_product');
+    Route::get('edit_category/{product_id}',[category_controller::class,'edit_category'])->name('edit_category');
     Route::post('add_category',[category_controller::class,'add_category'])->name('add_category');
+    Route::POST('edit_category',[category_controller::class,'edit_category_post'])->name('edit_category_post');
+    Route::get('delete_category/{category_id}',[category_controller::class,'delete_category'])->name('delete_category');
 
 });
 

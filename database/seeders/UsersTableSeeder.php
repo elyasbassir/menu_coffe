@@ -31,7 +31,7 @@ class UsersTableSeeder extends Seeder
                 'password' => '$2y$12$RB/kDaEBUcUD/jZO/ebfvuTTgFqJnqlrLkjK3JiTH5LUAgmuuqA.i',
                 'phone' => '09153359833',
                 'level' => 0,
-                'remember_token' => 'GkqZ7IBdSBBA4quVZlFK2fW2ONXvwSC8COUKWzpuBSr07H9sdzr3LUEXIxSh',
+                'remember_token' => 'scruoktYF5UJe9tLpAWrD8EpGhNxQr9IyiWQkQl163FczZqUHqCslXTFNhoC',
             ),
             1 => 
             array (

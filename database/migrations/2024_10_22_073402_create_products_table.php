@@ -16,13 +16,15 @@ return new class extends Migration
             $table->integer('id', true);
             $table->text('coffee_code')->nullable();
             $table->text('name_product')->nullable();
-            $table->text('image_names')->nullable();
+            $table->text('image_names')->nullable()->comment('/assets/images/products/');
             $table->text('description_product')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->boolean('availability')->nullable();
             $table->integer('price')->nullable();
-            $table->text('video_name')->nullable();
+            $table->text('video_name')->nullable()->comment('/assets/videos/products/');
+            $table->text('category_id')->nullable();
+            $table->text('product_id')->nullable();
         });
     }
 

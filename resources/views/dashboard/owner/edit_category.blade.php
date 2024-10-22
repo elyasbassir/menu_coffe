@@ -29,12 +29,13 @@
     </nav>
     <!-- main content -->
     <div class="container" style="position: relative;padding: 20px">
-        <h2>فرم اضافه کردن دسته بندی</h2>
-        <form action="{{route('owner.add_category')}}" method="POST" enctype="multipart/form-data">
+        <h2>ویرایش دسته بندی</h2>
+        <form action="{{route('owner.edit_category_post')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col">
-                    <input name="name_category" type="text" class="form-control" placeholder="First name">
+                    <input name="name_category" type="text" class="form-control" placeholder="First name" value="{{ $data_product->value('category_name') }}">
+                    <input name="category_id" type="hidden" value="{{ $data_product->value('category_id') }}">
                 </div>
                 <div class="col">
                     <input type="file" name="image_category">
@@ -46,26 +47,6 @@
     </div>
 
 
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">نام</th>
-            <th scope="col">حذف</th>
-            <th scope="col">ویرایش</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($category_user as $key=>$value)
-            <tr>
-                <th scope="row">{{$key}}</th>
-                <td>{{$value->category_name}}</td>
-                <td><a href="{{ route('owner.delete_category', $value->category_id) }}">حذف</a></td>
-                <td><a href="{{ route('owner.edit_category', $value->category_id) }}">ویرایش</a></td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
 
 
 </div>
