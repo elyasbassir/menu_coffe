@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     {!! SEO::generate() !!}
 
 
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet"href="{{ asset('assets/css/swiper-bundle.min.css') }}" />
-    <link rel="stylesheet"href="{{ asset('assets/css/bootstrap-icons/font/bootstrap-icons.min.css') }}" />
+    <link rel="stylesheet"href="{{ asset('assets/css/swiper-bundle.min.css') }}"/>
+    <link rel="stylesheet"href="{{ asset('assets/css/bootstrap-icons/font/bootstrap-icons.min.css') }}"/>
 
-    <link rel="stylesheet"href="{{ asset('assets/themes/css/' . $style) }}" />
-    <style>
-        {{ $custom_css }}
-    </style>
+    <link rel="stylesheet"href="{{ asset('assets/themes/css/'.$style) }}"/>
+      <style>
+          {{ $custom_css }}
+      </style>
 
 </head>
-
 <body>
-    <div class="full_size">
-    </div>
-    <div class="page_detail_product">
+<div class="full_size">
+</div>
+<div class="page_detail_product">
         <h2 class="title_detail_product">قهوه اسپرسو</h2>
         <div class="slider_image_product">
             <div class="swiper-wrapper">
@@ -32,15 +30,9 @@
                     <img class="image_two" height="200" src="" alt="">
                 </div>
                 <div class="swiper-slide">
-<<<<<<< Updated upstream
-                    <video height="200" width="300"
-                        src="../assets/products/edd01240eaeddcc725ad904e020a72fa2419178-360p.mp4"
-                        controls="controls"></video>
-=======
                     <video id="video_product" height="200" width="300"
                            src="../assets/products/edd01240eaeddcc725ad904e020a72fa2419178-360p.mp4"
                            controls="controls" poster="/assets/themes/images/not_found.jpg"></video>
->>>>>>> Stashed changes
                 </div>
             </div>
         </div>
@@ -49,68 +41,45 @@
             توضیحات:
         </h3>
         <p class="title_description">
-            این قهوه اسپرسو تماما با عشق و علاقه خاصی تولید و طراحی شده و ما برای تولید آن کلی زحمت میکشیم که بتونیم اون
-            رو به دست مشتری عزیزمان برسانیم امیدواریم که از کیفیت قهوه ما لذت تمام را برده باشید با تشکر
-            این قهوه اسپرسو تماما با عشق و علاقه خاصی تولید و طراحی شده و ما برای تولید آن کلی زحمت میکشیم که بتونیم اون
-            رو به دست مشتری عزیزمان برسانیم امیدواریم که از کیفیت قهوه ما لذت تمام را برده باشید با تشکر
-            این قهوه اسپرسو تماما با عشق و علاقه خاصی تولید و طراحی شده و ما برای تولید آن کلی زحمت میکشیم که بتونیم اون
-            رو به دست مشتری عزیزمان برسانیم امیدواریم که از کیفیت قهوه ما لذت تمام را برده باشید با تشکر
+            این قهوه اسپرسو تماما با عشق و علاقه خاصی تولید و طراحی شده و ما برای تولید آن کلی زحمت میکشیم که بتونیم اون رو به دست مشتری عزیزمان برسانیم امیدواریم که از کیفیت قهوه ما لذت تمام را برده باشید با تشکر
+            این قهوه اسپرسو تماما با عشق و علاقه خاصی تولید و طراحی شده و ما برای تولید آن کلی زحمت میکشیم که بتونیم اون رو به دست مشتری عزیزمان برسانیم امیدواریم که از کیفیت قهوه ما لذت تمام را برده باشید با تشکر
+            این قهوه اسپرسو تماما با عشق و علاقه خاصی تولید و طراحی شده و ما برای تولید آن کلی زحمت میکشیم که بتونیم اون رو به دست مشتری عزیزمان برسانیم امیدواریم که از کیفیت قهوه ما لذت تمام را برده باشید با تشکر
 
         </p>
 
 
-    </div>
+</div>
 
 
     <div class="category_search">
-        {{-- <a href="#" class="btn" onclick="list()"
+    <a href="#" class="btn" onclick="list()"
     ><i class="bi bi-collection"></i
     ></a>
     <a href="#" class="btn" onclick="group()">
-        <i class="bi bi-list"></i> --}}
-        <a href="#" class="btn" onclick="list()">
-            <i class="bi bi-list"></i> <!-- Start with the grid icon -->
-        </a>
-        </a>
+        <i class="bi bi-list"></i>
+    </a>
+    <input
+            type="text"
+            class="search-box"
+            id="searchBox"
+            placeholder="جستجو..."
+            onkeyup="search()"
+    />
 
+</div>
 
-
-
-        <input type="text" class="search-box" id="searchBox" placeholder="جستجو..." onkeyup="search()" />
-
-    </div>
-
-<<<<<<< Updated upstream
-    <div class="swiper category_product">
-        <div class="swiper-wrapper">
-            @foreach ($category as $key => $value)
-                <div class="swiper-slide item_category">
-                    <img src="{{ asset('/assets/images/image_category/') . '/' . $value->image_category }}"
-                        alt="">
-                    <p>{{ $value->category_name }}</p>
-                </div>
-            @endforeach
+<div class="swiper category_product">
+    <div class="swiper-wrapper">
+        @foreach($category as $key=>$value)
+        <div class="swiper-slide item_category">
+            <img src="{{asset("/assets/images/image_category/").'/'.$value->image_category }}" alt="">
+            <p >{{ $value->category_name }}</p>
         </div>
-        <div class="swiper-pagination"></div>
+        @endforeach
     </div>
+    <div class="swiper-pagination"></div>
+</div>
 
-
-    <div class="container-fluid">
-        <div class="flex-row category">
-            @foreach ($all_products as $key => $value)
-                <div class="card food" category="test">
-                    <img src="{{ asset('/assets/images/products/') . '/' . explode(',', $value->image_names)[0] }}"
-                        alt="">
-                    <div class="card-title">
-                        <h5 class="name_product">{{ $value->name_product }}</h5>
-                        <p>{{ $value->description_product }}</p>
-                    </div>
-                    <p class="text-success card-text isAvailable">موجود</p>
-                    <p class=" food-price food-price">{{ number_format($value->price) }} تومان</p>
-                </div>
-            @endforeach
-        </div>
-=======
 
 <div class="container-fluid background_items">
     <div class="flex-row category">
@@ -197,97 +166,18 @@
             </div>
 
         @endforeach
->>>>>>> Stashed changes
     </div>
+</div>
 
 </body>
-<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<<<<<<< Updated upstream
-<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-<script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
-<script>
-    var swiper = new Swiper(".CategorySwiper", {
-        slidesPerView: 5,
-        spaceBetween: 20,
-    });
-
-    var category_product = new Swiper(".category_product", {
-        spaceBetween: 0,
-        freeMode: true,
-        speed: 5000,
-        autoplay: {
-            delay: 1,
-            pauseOnMouseEnter: true,
-            disableOnInteraction: false,
-            waitForTransition: true,
-            stopOnLastSlide: false,
-
-        },
-        breakpoints: {
-
-            320: {
-                slidesPerView: 3,
-                spaceBetween: 0
-            },
-
-            480: {
-                slidesPerView: 4,
-                spaceBetween: 0
-            },
-
-            640: {
-                slidesPerView: 5,
-                spaceBetween: 0
-            },
-
-            900: {
-                slidesPerView: 6,
-                spaceBetween: 0
-            }
-        }
-    });
-
-    var mySwiper = new Swiper('.slider_image_product', {
-        loop: true,
-        spaceBetween: 50,
-        speed: 1000,
-        // autoplay: {
-        //   delay: 3000,
-        // },
-        effect: 'coverflow',
-        centeredSlides: true,
-        slidesPerView: 3,
-        breakpoints: {
-            '300': {
-                slidesPerView: 1
-            },
-            '500': {
-                slidesPerView: 2,
-            },
-            '900': {
-                slidesPerView: 3,
-            },
-        },
-        coverflowEffect: {
-            rotate: 0,
-            stretch: 80,
-            depth: 200,
-            modifier: 1,
-            slideShadows: false,
-        }
-    })
-</script>
-<script src="{{ asset('assets/themes/js/' . $script) }}"></script>
-
-=======
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/swiper-bundle.min.js')}}"></script>
 <script src="{{asset('assets/themes/js/'.$script)}}"></script>
->>>>>>> Stashed changes
 </html>
 
-{{-- این استایل ها باید اضافه بشه به قالب --}}
+{{--این استایل ها باید اضافه بشه به قالب--}}
 <style>
 
 
