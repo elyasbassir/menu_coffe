@@ -60,7 +60,7 @@
     }
 }
 
-*{
+* {
     font-family: "iran-marker";
 }
 body {
@@ -128,10 +128,11 @@ body {
     font-size: 18px;
     border-radius: 10px;
 }
-.page_detail_product{
+.page_detail_product {
     display: none;
 }
-.slider_image_product img,.slider_image_product video{
+.slider_image_product img,
+.slider_image_product video {
     width: 220px;
     height: 220px;
 }
@@ -173,7 +174,8 @@ body {
 }
 
 .card:hover {
-    .card-img-top h6, p {
+    .card-img-top h6,
+    p {
         color: snow;
     }
 }
@@ -246,7 +248,6 @@ body {
 .card-text,
 .food-price {
     font-family: "iran-marker";
-
 }
 
 .flex-row .card .ingredients-container {
@@ -298,7 +299,6 @@ body {
 
 .card:hover img {
     border-radius: 2%;
-
 }
 
 .card:hover {
@@ -406,27 +406,27 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
 }
-   .slider_image_product{
-       position: relative;
-       width: 100%;
-   }
-.title_detail_product{
+.slider_image_product {
+    position: relative;
+    width: 100%;
+}
+.title_detail_product {
     position: relative;
     margin-top: 20px;
     color: snow;
 }
-.title_description{
+.title_description {
     color: snow;
     position: relative;
     margin-right: 30px;
 }
-.page_detail_product p{
+.page_detail_product p {
     font-size: 12px;
     line-height: 30px;
     max-width: 85%;
     z-index: 2;
 }
-.full_size{
+.full_size {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -455,7 +455,6 @@ body {
     .flex-row .card {
         width: 47%;
     }
-
 
     .flex-row .card-title {
         display: flex;
@@ -537,7 +536,6 @@ body {
     /* flex-row */
     .flex-row .card .card-title {
         display: flex;
-
     }
 
     .flex-row .card .ingredients {
@@ -547,7 +545,6 @@ body {
     .card img {
         width: 110px;
     }
-
 }
 
 @media screen and (max-width: 390px) {
@@ -556,24 +553,25 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-.category_product{
+.category_product {
     position: relative;
     height: 110px;
     color: snow;
 }
 
-.category_product p{
-font-size: 10px;
-font-weight: bold;
+.category_product p {
+    font-size: 10px;
+    font-weight: bold;
 }
 
-.item_category{
+.item_category {
     position: relative;
     display: block;
 }
-.item_category img{
+.item_category img {
     border-radius: 50%;
     height: 75px;
     width: 75px;
 }
+
 
