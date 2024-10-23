@@ -28,19 +28,19 @@
         </button>
     </nav>
     <!-- main content -->
-    <div class="container" style="position: relative;padding: 20px">
-        <h2>فرم اضافه کردن دسته بندی</h2>
+    <div class="container" style="position: relative;padding: 20px;text-align: center">
+        <h2 class="mb-3">فرم اضافه کردن دسته بندی</h2>
         <form action="{{route('owner.add_category')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col">
-                    <input name="name_category" type="text" class="form-control" placeholder="First name">
+                    <input name="name_category" type="text" class="form-control" placeholder="نام دسته بندی...">
                 </div>
                 <div class="col">
                     <input type="file" name="image_category">
                 </div>
             </div>
-            <input class="btn btn-primary col-3" type="submit" value="اضافه کردن دسته بندی">
+            <input class="btn btn-primary col-3" style="margin:auto;margin-top: 20px;" type="submit" value="اضافه کردن دسته بندی">
         </form>
 
     </div>
@@ -60,8 +60,8 @@
             <tr>
                 <th scope="row">{{$key}}</th>
                 <td>{{$value->category_name}}</td>
-                <td><a href="{{ route('owner.delete_category', $value->category_id) }}">حذف</a></td>
-                <td><a href="{{ route('owner.edit_category', $value->category_id) }}">ویرایش</a></td>
+                <td><a class="btn btn-danger p-1" href="{{ route('owner.delete_category', $value->category_id) }}">حذف</a></td>
+                <td><a class="btn btn-primary p-1" href="{{ route('owner.edit_category', $value->category_id) }}">ویرایش</a></td>
             </tr>
         @endforeach
         </tbody>

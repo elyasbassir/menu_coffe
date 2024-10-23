@@ -63,6 +63,7 @@
 * {
     font-family: "iran-marker";
 }
+
 body {
     background-image: url("/assets/themes/images/backgeound.jpg");
     direction: rtl;
@@ -128,14 +129,20 @@ body {
     font-size: 18px;
     border-radius: 10px;
 }
+<<<<<<< Updated upstream
 .page_detail_product {
     display: none;
 }
 .slider_image_product img,
 .slider_image_product video {
+=======
+
+.slider_image_product img, .slider_image_product video {
+>>>>>>> Stashed changes
     width: 220px;
     height: 220px;
 }
+
 .swiper-slide p {
     padding-top: 10px;
     font-family: "iran-marker";
@@ -211,8 +218,20 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     gap: 5px;
+}
+
+.background_items::-webkit-scrollbar {
+    display: none;
+}
+.background_items {
+    height: calc(100vh - 180px);
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-y: scroll;
     border: 7px double #ffffff;
-    border-radius: 0px 30px 0px 30px;
+    border-radius: 94% 6% 84% 16% / 9% 77% 23% 91%;
+    /*backdrop-filter: blur(3px);*/
 }
 
 .flex-row .card {
@@ -394,38 +413,66 @@ body {
 .footer p {
     margin-top: 10px;
 }
-
+.description_product{
+    max-width: 65%;
+}
 .page_detail_product {
+    display: none;
+    z-index: 2;
     position: fixed;
-    background-color: #202020;
+    /*backdrop-filter: blur(10px);*/
+    border: 5px dotted rgb(255, 255, 255);
+    border-radius: 89% 11% 75% 25% / 6% 87% 13% 94%;
     right: 10%;
     bottom: 10%;
     width: 80%;
     height: 80%;
-    z-index: 1;
     overflow-y: scroll;
     overflow-x: hidden;
 }
+<<<<<<< Updated upstream
 .slider_image_product {
     position: relative;
     width: 100%;
 }
 .title_detail_product {
+=======
+
+.slider_image_product {
+>>>>>>> Stashed changes
     position: relative;
+    width: 100%;
+}
+
+.title_detail_product {
+    position: relative;
+    text-align: center;
     margin-top: 20px;
     color: snow;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .title_description {
     color: snow;
     position: relative;
     margin-right: 30px;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .page_detail_product p {
     font-size: 12px;
     line-height: 30px;
     max-width: 85%;
     z-index: 2;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .full_size {
     position: fixed;
     width: 100%;
@@ -433,6 +480,7 @@ body {
     z-index: 1;
     display: none;
 }
+
 @media screen and (min-width: 1141px) {
     .search-box {
         width: 40%;
@@ -553,6 +601,10 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .category_product {
     position: relative;
     height: 110px;
@@ -568,6 +620,10 @@ body {
     position: relative;
     display: block;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .item_category img {
     border-radius: 50%;
     height: 75px;

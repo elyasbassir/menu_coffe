@@ -32,9 +32,15 @@
                     <img class="image_two" height="200" src="" alt="">
                 </div>
                 <div class="swiper-slide">
+<<<<<<< Updated upstream
                     <video height="200" width="300"
                         src="../assets/products/edd01240eaeddcc725ad904e020a72fa2419178-360p.mp4"
                         controls="controls"></video>
+=======
+                    <video id="video_product" height="200" width="300"
+                           src="../assets/products/edd01240eaeddcc725ad904e020a72fa2419178-360p.mp4"
+                           controls="controls" poster="/assets/themes/images/not_found.jpg"></video>
+>>>>>>> Stashed changes
                 </div>
             </div>
         </div>
@@ -74,6 +80,7 @@
 
     </div>
 
+<<<<<<< Updated upstream
     <div class="swiper category_product">
         <div class="swiper-wrapper">
             @foreach ($category as $key => $value)
@@ -103,11 +110,100 @@
                 </div>
             @endforeach
         </div>
+=======
+
+<div class="container-fluid background_items">
+    <div class="flex-row category">
+        @foreach($all_products as $key=>$value)
+        <div class="card food">
+            <?php
+                $images_name =explode(',',$value->image_names);
+                $video = $value->video_name;
+                ?>
+            <img src="{{ asset('/assets/images/products/').'/'.$images_name[0] }}" next_image="@if(count($images_name) > 1){{ asset('/assets/images/products/').'/'.$images_name[1] }} @endif" video_address="@if($video != ""){{ asset('/assets/videos/products/').'/'.$video }} @endif" alt="" >
+            <div class="card-title">
+                <h5 class="name_product">{{ $value->name_product }}</h5>
+                <p class="description_product">{{ substr($value->description_product,0,45).' ...' }}</p>
+            </div>
+            <p class="text-success card-text isAvailable">موجود</p>
+            <p class=" food-price food-price">{{ number_format($value->price) }} تومان</p>
+        </div>
+
+
+            <div class="card food">
+                    <?php
+                    $images_name =explode(',',$value->image_names);
+                    $video = $value->video_name;
+                    ?>
+                <img src="{{ asset('/assets/images/products/').'/'.$images_name[0] }}" next_image="@if(count($images_name) > 1){{ asset('/assets/images/products/').'/'.$images_name[1] }} @endif" video_address="@if($video != ""){{ asset('/assets/videos/products/').'/'.$video }} @endif" alt="" >
+                <div class="card-title">
+                    <h5 class="name_product">{{ $value->name_product }}</h5>
+                    <p class="description_product">{{ substr($value->description_product,0,45).' ...' }}</p>
+                </div>
+                <p class="text-success card-text isAvailable">موجود</p>
+                <p class=" food-price food-price">{{ number_format($value->price) }} تومان</p>
+            </div>
+            <div class="card food">
+                    <?php
+                    $images_name =explode(',',$value->image_names);
+                    $video = $value->video_name;
+                    ?>
+                <img src="{{ asset('/assets/images/products/').'/'.$images_name[0] }}" next_image="@if(count($images_name) > 1){{ asset('/assets/images/products/').'/'.$images_name[1] }} @endif" video_address="@if($video != ""){{ asset('/assets/videos/products/').'/'.$video }} @endif" alt="" >
+                <div class="card-title">
+                    <h5 class="name_product">{{ $value->name_product }}</h5>
+                    <p class="description_product">{{ substr($value->description_product,0,45).' ...' }}</p>
+                </div>
+                <p class="text-success card-text isAvailable">موجود</p>
+                <p class=" food-price food-price">{{ number_format($value->price) }} تومان</p>
+            </div>
+            <div class="card food">
+                    <?php
+                    $images_name =explode(',',$value->image_names);
+                    $video = $value->video_name;
+                    ?>
+                <img src="{{ asset('/assets/images/products/').'/'.$images_name[0] }}" next_image="@if(count($images_name) > 1){{ asset('/assets/images/products/').'/'.$images_name[1] }} @endif" video_address="@if($video != ""){{ asset('/assets/videos/products/').'/'.$video }} @endif" alt="" >
+                <div class="card-title">
+                    <h5 class="name_product">{{ $value->name_product }}</h5>
+                    <p class="description_product">{{ substr($value->description_product,0,45).' ...' }}</p>
+                </div>
+                <p class="text-success card-text isAvailable">موجود</p>
+                <p class=" food-price food-price">{{ number_format($value->price) }} تومان</p>
+            </div>
+            <div class="card food">
+                    <?php
+                    $images_name =explode(',',$value->image_names);
+                    $video = $value->video_name;
+                    ?>
+                <img src="{{ asset('/assets/images/products/').'/'.$images_name[0] }}" next_image="@if(count($images_name) > 1){{ asset('/assets/images/products/').'/'.$images_name[1] }} @endif" video_address="@if($video != ""){{ asset('/assets/videos/products/').'/'.$video }} @endif" alt="" >
+                <div class="card-title">
+                    <h5 class="name_product">{{ $value->name_product }}</h5>
+                    <p class="description_product">{{ substr($value->description_product,0,45).' ...' }}</p>
+                </div>
+                <p class="text-success card-text isAvailable">موجود</p>
+                <p class=" food-price food-price">{{ number_format($value->price) }} تومان</p>
+            </div>
+            <div class="card food">
+                    <?php
+                    $images_name =explode(',',$value->image_names);
+                    $video = $value->video_name;
+                    ?>
+                <img src="{{ asset('/assets/images/products/').'/'.$images_name[0] }}" next_image="@if(count($images_name) > 1){{ asset('/assets/images/products/').'/'.$images_name[1] }} @endif" video_address="@if($video != ""){{ asset('/assets/videos/products/').'/'.$video }} @endif" alt="" >
+                <div class="card-title">
+                    <h5 class="name_product">{{ $value->name_product }}</h5>
+                    <p class="description_product">{{ substr($value->description_product,0,45).' ...' }}</p>
+                </div>
+                <p class="text-success card-text isAvailable">موجود</p>
+                <p class=" food-price food-price">{{ number_format($value->price) }} تومان</p>
+            </div>
+
+        @endforeach
+>>>>>>> Stashed changes
     </div>
 
 </body>
 <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<<<<<<< Updated upstream
 <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
 <script>
@@ -184,6 +280,11 @@
 </script>
 <script src="{{ asset('assets/themes/js/' . $script) }}"></script>
 
+=======
+<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+<script src="{{asset('assets/js/swiper-bundle.min.js')}}"></script>
+<script src="{{asset('assets/themes/js/'.$script)}}"></script>
+>>>>>>> Stashed changes
 </html>
 
 {{-- این استایل ها باید اضافه بشه به قالب --}}

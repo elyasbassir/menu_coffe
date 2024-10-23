@@ -55,13 +55,13 @@
                     <td>{{ $value->name_product }}</td>
                     <td>{{ number_format($value->price) }}</td>
                     <td>{{ $value->category_name }}</td>
-                    <td class="edit"><a href="{{ route('owner.edit_product_owner',$value->product_id) }}">ویرایش</a></td>
-                    <td class="edit">
+                    <td class="edit"><a class="btn btn-primary p-1" href="{{ route('owner.edit_product_owner',$value->product_id) }}">ویرایش</a></td>
+                    <td class="delete">
                         <form action="{{ route('owner.delete_product_owner') }}" method="post">
                             @method('DELETE')
                             @csrf
                             <input type="hidden" name="product_id" value="{{$value->product_id}}">
-                            <input type="submit" value="حذف">
+                            <input class="btn btn-danger p-1" type="submit" value="حذف">
                         </form>
                     </td>
             </tr>
