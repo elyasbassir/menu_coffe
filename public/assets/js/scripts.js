@@ -21,14 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-const swiper = new Swiper(".swiper", {
-    effect: "cards",
-    grabCursor: false,
-    initialSlide: 2,
-    speed: 500,
-    loop: false,
-    rotate: true,
-    mousewheel: {
-        invert: false,
-    },
+
+$(document).ready(function (){
+    $(".navbar-toggler").click(function (){
+        $("#navbarNav").fadeToggle(1000);
+    });
 });
