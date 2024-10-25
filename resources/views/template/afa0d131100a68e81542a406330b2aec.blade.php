@@ -20,7 +20,7 @@
 <div class="full_size">
 </div>
 <div class="page_detail_product">
-        <h2 class="title_detail_product">قهوه اسپرسو</h2>
+        <h2 class="title_detail_product"></h2>
         <div class="slider_image_product">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -41,9 +41,6 @@
             توضیحات:
         </h3>
         <p class="title_description">
-            این قهوه اسپرسو تماما با عشق و علاقه خاصی تولید و طراحی شده و ما برای تولید آن کلی زحمت میکشیم که بتونیم اون رو به دست مشتری عزیزمان برسانیم امیدواریم که از کیفیت قهوه ما لذت تمام را برده باشید با تشکر
-            این قهوه اسپرسو تماما با عشق و علاقه خاصی تولید و طراحی شده و ما برای تولید آن کلی زحمت میکشیم که بتونیم اون رو به دست مشتری عزیزمان برسانیم امیدواریم که از کیفیت قهوه ما لذت تمام را برده باشید با تشکر
-            این قهوه اسپرسو تماما با عشق و علاقه خاصی تولید و طراحی شده و ما برای تولید آن کلی زحمت میکشیم که بتونیم اون رو به دست مشتری عزیزمان برسانیم امیدواریم که از کیفیت قهوه ما لذت تمام را برده باشید با تشکر
 
         </p>
 
@@ -52,12 +49,12 @@
 
 
     <div class="category_search">
-    <a href="#" class="btn" onclick="list()"
-    ><i class="bi bi-collection"></i
+    <a href="#" class="btn" onclick="toggle()"
+    ><i class="icon_toggle bi bi-collection"></i
     ></a>
-    <a href="#" class="btn" onclick="group()">
-        <i class="bi bi-list"></i>
-    </a>
+{{--    <a href="#" class="btn" onclick="group()">--}}
+{{--        <i class="bi bi-list"></i>--}}
+{{--    </a>--}}
     <input
             type="text"
             class="search-box"
@@ -71,20 +68,21 @@
 <div class="swiper category_product">
     <div class="swiper-wrapper">
         @foreach($category as $key=>$value)
-        <div class="swiper-slide item_category">
+        <div class="swiper-slide item_category" category="{{ $value->category_id }}">
             <img src="{{asset("/assets/images/image_category/").'/'.$value->image_category }}" alt="">
             <p >{{ $value->category_name }}</p>
         </div>
         @endforeach
+
     </div>
-    <div class="swiper-pagination"></div>
+
 </div>
 
 
 <div class="container-fluid background_items">
     <div class="flex-row category">
         @foreach($all_products as $key=>$value)
-        <div class="card food">
+        <div class="card food" category="{{ $value->category_id }}">
             <?php
                 $images_name =explode(',',$value->image_names);
                 $video = $value->video_name;
@@ -92,80 +90,17 @@
             <img src="{{ asset('/assets/images/products/').'/'.$images_name[0] }}" next_image="@if(count($images_name) > 1){{ asset('/assets/images/products/').'/'.$images_name[1] }} @endif" video_address="@if($video != ""){{ asset('/assets/videos/products/').'/'.$video }} @endif" alt="" >
             <div class="card-title">
                 <h5 class="name_product">{{ $value->name_product }}</h5>
-                <p class="description_product">{{ substr($value->description_product,0,45).' ...' }}</p>
+                <p class="description_product" value="{{$value->description_product}}">{{ substr($value->description_product,0,45).' ...' }}</p>
             </div>
             <p class="text-success card-text isAvailable">موجود</p>
             <p class=" food-price food-price">{{ number_format($value->price) }} تومان</p>
         </div>
 
 
-            <div class="card food">
-                    <?php
-                    $images_name =explode(',',$value->image_names);
-                    $video = $value->video_name;
-                    ?>
-                <img src="{{ asset('/assets/images/products/').'/'.$images_name[0] }}" next_image="@if(count($images_name) > 1){{ asset('/assets/images/products/').'/'.$images_name[1] }} @endif" video_address="@if($video != ""){{ asset('/assets/videos/products/').'/'.$video }} @endif" alt="" >
-                <div class="card-title">
-                    <h5 class="name_product">{{ $value->name_product }}</h5>
-                    <p class="description_product">{{ substr($value->description_product,0,45).' ...' }}</p>
-                </div>
-                <p class="text-success card-text isAvailable">موجود</p>
-                <p class=" food-price food-price">{{ number_format($value->price) }} تومان</p>
-            </div>
-            <div class="card food">
-                    <?php
-                    $images_name =explode(',',$value->image_names);
-                    $video = $value->video_name;
-                    ?>
-                <img src="{{ asset('/assets/images/products/').'/'.$images_name[0] }}" next_image="@if(count($images_name) > 1){{ asset('/assets/images/products/').'/'.$images_name[1] }} @endif" video_address="@if($video != ""){{ asset('/assets/videos/products/').'/'.$video }} @endif" alt="" >
-                <div class="card-title">
-                    <h5 class="name_product">{{ $value->name_product }}</h5>
-                    <p class="description_product">{{ substr($value->description_product,0,45).' ...' }}</p>
-                </div>
-                <p class="text-success card-text isAvailable">موجود</p>
-                <p class=" food-price food-price">{{ number_format($value->price) }} تومان</p>
-            </div>
-            <div class="card food">
-                    <?php
-                    $images_name =explode(',',$value->image_names);
-                    $video = $value->video_name;
-                    ?>
-                <img src="{{ asset('/assets/images/products/').'/'.$images_name[0] }}" next_image="@if(count($images_name) > 1){{ asset('/assets/images/products/').'/'.$images_name[1] }} @endif" video_address="@if($video != ""){{ asset('/assets/videos/products/').'/'.$video }} @endif" alt="" >
-                <div class="card-title">
-                    <h5 class="name_product">{{ $value->name_product }}</h5>
-                    <p class="description_product">{{ substr($value->description_product,0,45).' ...' }}</p>
-                </div>
-                <p class="text-success card-text isAvailable">موجود</p>
-                <p class=" food-price food-price">{{ number_format($value->price) }} تومان</p>
-            </div>
-            <div class="card food">
-                    <?php
-                    $images_name =explode(',',$value->image_names);
-                    $video = $value->video_name;
-                    ?>
-                <img src="{{ asset('/assets/images/products/').'/'.$images_name[0] }}" next_image="@if(count($images_name) > 1){{ asset('/assets/images/products/').'/'.$images_name[1] }} @endif" video_address="@if($video != ""){{ asset('/assets/videos/products/').'/'.$video }} @endif" alt="" >
-                <div class="card-title">
-                    <h5 class="name_product">{{ $value->name_product }}</h5>
-                    <p class="description_product">{{ substr($value->description_product,0,45).' ...' }}</p>
-                </div>
-                <p class="text-success card-text isAvailable">موجود</p>
-                <p class=" food-price food-price">{{ number_format($value->price) }} تومان</p>
-            </div>
-            <div class="card food">
-                    <?php
-                    $images_name =explode(',',$value->image_names);
-                    $video = $value->video_name;
-                    ?>
-                <img src="{{ asset('/assets/images/products/').'/'.$images_name[0] }}" next_image="@if(count($images_name) > 1){{ asset('/assets/images/products/').'/'.$images_name[1] }} @endif" video_address="@if($video != ""){{ asset('/assets/videos/products/').'/'.$video }} @endif" alt="" >
-                <div class="card-title">
-                    <h5 class="name_product">{{ $value->name_product }}</h5>
-                    <p class="description_product">{{ substr($value->description_product,0,45).' ...' }}</p>
-                </div>
-                <p class="text-success card-text isAvailable">موجود</p>
-                <p class=" food-price food-price">{{ number_format($value->price) }} تومان</p>
+        @endforeach
+            <div id="show_note" class="position-relative text-center w-100">
             </div>
 
-        @endforeach
     </div>
 </div>
 

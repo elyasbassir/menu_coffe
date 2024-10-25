@@ -5,35 +5,26 @@ let swiper = new Swiper(".CategorySwiper", {
 
 let category_product = new Swiper(".category_product", {
     spaceBetween: 0,
-    freeMode: true,
     speed: 5000,
-    autoplay: {
-        delay: 1,
-        pauseOnMouseEnter: true,
-        disableOnInteraction: false,
-        waitForTransition: true,
-        stopOnLastSlide: false,
-
-    },
     breakpoints: {
 
         320: {
-            slidesPerView: 3,
-            spaceBetween: 0
-        },
-
-        480: {
             slidesPerView: 4,
             spaceBetween: 0
         },
 
-        640: {
+        480: {
             slidesPerView: 5,
             spaceBetween: 0
         },
 
-        900: {
+        640: {
             slidesPerView: 6,
+            spaceBetween: 0
+        },
+
+        900: {
+            slidesPerView: 10,
             spaceBetween: 0
         }
     }
@@ -74,15 +65,13 @@ let slider_image_product = new Swiper('.slider_image_product', {
 const category = document.querySelector(".category");
 
 // const flex_grid = document.querySelector(".flex-row");
-function group() {
-    category.classList.remove("grid-row");
-    category.classList.add("flex-row");
+function toggle() {
+    category.classList.toggle("grid-row");
+    category.classList.toggle("flex-row");
+    document.querySelector(".icon_toggle").classList.toggle("bi-collection");
+    document.querySelector(".icon_toggle").classList.toggle("bi-list");
 }
 
-function list() {
-    category.classList.remove("flex-row");
-    category.classList.add("grid-row");
-}
 
 function search() {
     let filter = document.getElementById("searchBox").value.toUpperCase();
@@ -108,7 +97,7 @@ var pause = false;
 $(document).ready(function () {
     $(".card ").click(function () {
         let name_product = $(this).find('.name_product').html();
-        let description = $(this).find('p').html();
+        let description = $(this).find('p').attr('value');
         let image = $(this).find('img');
         let image_one = image.attr('src');
         let image_two = image.attr('next_image');
@@ -128,6 +117,36 @@ $(document).ready(function () {
     $(".full_size ").click(function () {
         $(".page_detail_product").fadeOut(500);
         $(".full_size").fadeOut(500);
+    });
+
+    function show_all_item(){
+        $(".card").each(function() {
+                $(this).show();
+        });
+    }
+
+
+
+
+
+
+    /////////filter category
+
+    $(".item_category").click(function (){
+        $("#show_note").html("");
+        show_all_item();
+        let category_id = $(this).attr('category');
+        let found = false;
+        $(".card").each(function() {
+            if($(this).attr('category') != category_id){
+                $(this).fadeOut(0);
+            }else{
+                found= true;
+            }
+        });
+        if(found == false){
+            $("#show_note").html("محصولی برای این دسته بندی پیدا نشد");
+        }
     });
 });
 

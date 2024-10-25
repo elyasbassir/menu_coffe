@@ -90,7 +90,6 @@ body {
     border-radius: 50%;
     box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
     animation: bubble 15s linear infinite;
-    animation-duration: calc(125s / var(--i));
 }
 
 .bubbles span:nth-child(even) {
@@ -214,6 +213,7 @@ body {
 .background_items::-webkit-scrollbar {
     display: none;
 }
+
 .background_items {
     height: calc(100vh - 180px);
     overflow: auto;
@@ -308,46 +308,20 @@ body {
     font-size: 12px;
 }
 
-.card:hover img {
-    border-radius: 2%;
-
-}
-
 .card:hover {
-    background-color: rgba(58, 56, 56, 0.8);
+    background-color: #7D7C7C;
     transform: scale(1.08);
 }
 
-@keyframes border-radius-change {
-    0% {
-        border-radius: 20% 50% 30% 80%;
-        transform: scale(1);
-    }
-    25% {
-        border-radius: 50% 20% 70% 30%;
-        transform: scale(1.05);
-    }
-    50% {
-        border-radius: 30% 70% 50% 20%;
-        transform: scale(1.1);
-    }
-    75% {
-        border-radius: 80% 30% 20% 50%;
-        transform: scale(1.05);
-    }
-    100% {
-        border-radius: 20% 50% 30% 80%;
-        transform: scale(1);
-    }
-}
 
 .card img {
-    width: 130px;
-    height: 100px;
     transition: 0.5s;
-    will-change: border-radius;
-    animation: border-radius-change 3.5s infinite linear;
-    animation-delay: revert;
+    border-radius: 87% 13% 79% 21% / 10% 81% 19% 90%;
+
+}
+
+.flex-row .card img {
+    width: 130px;
 }
 
 .card-title,
@@ -406,14 +380,16 @@ body {
 .footer p {
     margin-top: 10px;
 }
-.description_product{
+
+.description_product {
     max-width: 65%;
 }
+
 .page_detail_product {
     display: none;
     z-index: 2;
     position: fixed;
-    backdrop-filter: blur(10px);
+    background-color: #5c636a;
     border: 5px dotted rgb(255, 255, 255);
     border-radius: 89% 11% 75% 25% / 6% 87% 13% 94%;
     right: 10%;
@@ -457,7 +433,7 @@ body {
     display: none;
 }
 
-@media screen and (min-width: 1141px) {
+@media screen and (min-width: 750px) {
     .search-box {
         width: 40%;
     }
@@ -477,7 +453,7 @@ body {
     }
 
     .flex-row .card {
-        width: 47%;
+        width: 46%;
     }
 
 
@@ -568,10 +544,6 @@ body {
         display: none;
     }
 
-    .card img {
-        width: 110px;
-    }
-
 }
 
 @media screen and (max-width: 390px) {
@@ -599,7 +571,16 @@ body {
 
 .item_category img {
     border-radius: 50%;
-    height: 75px;
-    width: 75px;
+    height: 60px;
+    width: 60px;
 }
 
+.category {
+    position: relative;
+    top: 10px;
+}
+
+#show_note {
+    height: 50px;
+    color: snow;
+}
